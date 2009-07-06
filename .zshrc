@@ -42,6 +42,9 @@ case $TERM in (xterm*)
 	bindkey '\e[H' beginning-of-line
 	bindkey '\e[F' end-of-line ;;
 esac
+bindkey OH beginning-of-line
+bindkey OF end-of-line
+bindkey '\e[3~' delete-char
 unsetopt automenu
 unsetopt menucomplete
 setopt listpacked
