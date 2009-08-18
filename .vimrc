@@ -46,6 +46,7 @@ autocmd BufReadPost *
   \ endif
 
 autocmd FileType php set keywordprg=~/.vim/php_doc
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 "set ww=b,s,h,l,<,>,[,]
 
 " Change yank to not affect the current cursor position (the default is to
