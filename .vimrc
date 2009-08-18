@@ -45,7 +45,7 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
-set keywordprg=~/phpman.sh
+autocmd FileType php set keywordprg=~/.vim/php_doc
 "set ww=b,s,h,l,<,>,[,]
 
 " Change yank to not affect the current cursor position (the default is to
