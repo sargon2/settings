@@ -37,8 +37,8 @@ au BufRead,BufNewFile *.xhtml set filetype=html
 au BufRead,BufNewFile *.xhtml filetype indent off
 au BufRead,BufNewFile *.xhtml set indentexpr=
 
-autocmd BufRead *.as set filetype=actionscript
-autocmd BufRead *.mxml set filetype=mxml
+autocmd BufRead,BufNewFile *.as set filetype=actionscript
+autocmd BufRead,BufNewFile *.mxml set filetype=mxml
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -77,3 +77,8 @@ endfunction
 
 map <s-down> j
 map <s-up> k
+
+if &omnifunc == ""
+	set omnifunc=syntaxcomplete#Complete
+endif
+
