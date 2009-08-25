@@ -8,6 +8,7 @@ set nobackup
 set showcmd
 set timeoutlen=0
 set ignorecase
+set infercase
 set backspace=indent,eol,start
 
 colorscheme darkblue
