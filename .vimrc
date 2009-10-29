@@ -10,6 +10,7 @@ set timeoutlen=0
 set ignorecase
 set infercase
 set backspace=indent,eol,start
+set nowrap
 
 colorscheme darkblue
 
@@ -83,3 +84,13 @@ if &omnifunc == ""
 	set omnifunc=syntaxcomplete#Complete
 endif
 
+"make alt+# swap buffers
+nmap <esc>1 :b 1<CR>
+nmap <esc>2 :b 2<CR>
+nmap <esc>3 :b 3<CR>
+nmap <esc>4 :b 4<CR>
+nmap <esc>5 :b 5<CR>
+nmap <esc>6 :b 6<CR>
+nmap <esc>7 :b 7<CR>
+nmap <esc>8 :b 8<CR>
+nmap <esc>9 :b 9<CR>
