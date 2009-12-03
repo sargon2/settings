@@ -175,6 +175,7 @@ sub cmd_color {
       Irssi::print ("Nick not given");
     } else {
       delete ($saved_colors{$nick});
+      delete ($session_colors{$nick});
     }
   } elsif ($op eq "list") {
     Irssi::print ("\nSaved Colors:");
