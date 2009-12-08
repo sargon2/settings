@@ -94,3 +94,5 @@ nmap <esc>6 :b 6<CR>
 nmap <esc>7 :b 7<CR>
 nmap <esc>8 :b 8<CR>
 nmap <esc>9 :b 9<CR>
+
+autocmd VimEnter * Alias q qa
