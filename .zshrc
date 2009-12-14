@@ -3,6 +3,9 @@
 eval $(dircolors -b)
 alias ls="ls -F --color=auto"
 alias vi="vim"
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
 
 # my common usernames...
 zstyle ':completion:*:(ssh|scp):*' users besen dbesen sargon ${(k)userdirs}
@@ -44,6 +47,8 @@ case $TERM in (xterm*)
 esac
 bindkey OH beginning-of-line
 bindkey OF end-of-line
+bindkey '[5~' up-line-or-history
+bindkey '[6~' down-line-or-history
 bindkey '\e[3~' delete-char
 unsetopt automenu
 unsetopt menucomplete
