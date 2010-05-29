@@ -31,8 +31,12 @@ set completeopt=longest,menuone
 
 filetype plugin on
 
+au BufRead,BufNewFile *.txt set filetype=text
+
 " disable annoying auto-wrap for text files
 autocmd FileType text setlocal textwidth=0
+
+autocmd FileType text set wrap
 
 " parse .xhtml as .html
 au BufRead,BufNewFile *.xhtml set filetype=html
@@ -96,3 +100,4 @@ nmap <esc>8 :b 8<CR>
 nmap <esc>9 :b 9<CR>
 
 autocmd VimEnter * Alias q qa
+autocmd VimEnter * Alias wq wqa
