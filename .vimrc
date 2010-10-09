@@ -99,5 +99,13 @@ nmap <esc>7 :b 7<CR>
 nmap <esc>8 :b 8<CR>
 nmap <esc>9 :b 9<CR>
 
+"make alt+arrow move lines up or down
+nnoremap <esc><down> :m+<CR>==
+nnoremap <esc><up> :m-2<CR>==
+inoremap <esc><down> <Esc>:m+<CR>==gi
+inoremap <esc><up> <Esc>:m-2<CR>==gi
+vnoremap <esc><down> :m'>+<CR>gv=gv
+vnoremap <esc><up> :m-2<CR>gv=gv
+
 autocmd VimEnter * Alias q qa
 autocmd VimEnter * Alias wq wqa
