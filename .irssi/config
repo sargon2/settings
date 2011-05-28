@@ -13,14 +13,10 @@ servers = (
 chatnets = {
   SILC = { type = "SILC"; };
   bigfeh = { type = "IRC"; };
-  "pbr-net" = { type = "IRC"; };
 };
 
 channels = (
   { name = "#hatcave"; chatnet = "bigfeh"; autojoin = "yes"; },
-  { name = "#pbr"; chatnet = "pbr-net"; autojoin = "yes"; },
-  { name = "#"; chatnet = "bigfeh"; autojoin = "yes"; },
-  { name = "#boggle"; chatnet = "bigfeh"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -248,21 +244,12 @@ keyboard = (
   { key = "F11"; id = "change_window"; data = "11"; },
   { key = "F12"; id = "change_window"; data = "12"; }
 );
+ignores = ( );
 windows = {
   1 = {
     immortal = "yes";
     name = "(status)";
     level = "CRAP PUBLICS SNOTES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
-  };
-  3 = {
-    items = (
-      { 
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#";
-        tag = "bigfeh";
-      }
-    );
   };
   2 = {
     items = (
@@ -274,6 +261,7 @@ windows = {
       }
     );
   };
+  99 = { name = "nicklist"; };
 };
-mainwindows = { 1 = { first_line = "1"; lines = "29"; }; };
-ignores = ( );
+mainwindows = { 1 = { first_line = "1"; lines = "44"; }; };
+hilights = ( );
