@@ -204,7 +204,7 @@ settings = {
     activity_hide_level = "joins parts quits nicks";
     completion_char = "";
     term_charset = "utf-8";
-    activity_hide_targets = " ";
+    activity_hide_targets = "#japanese.utf8";
   };
   "fe-text" = {
     indent = "12";
@@ -250,8 +250,6 @@ keyboard = (
   { key = "F12"; id = "change_window"; data = "12"; }
 );
 ignores = ( );
-hilights = ( );
-conversions = { "#japanese" = "iso-2022-jp"; };
 windows = {
   1 = {
     immortal = "yes";
@@ -268,16 +266,16 @@ windows = {
       }
     );
   };
-  3 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#japanese";
-        tag = "2ch";
-      }
-    );
-  };
   99 = { name = "nicklist"; };
 };
-mainwindows = { 1 = { first_line = "1"; lines = "41"; }; };
+mainwindows = { 1 = { first_line = "1"; lines = "44"; }; };
+hilights = (
+  {
+    text = ".* -channels #japanese.utf8";
+    color = "%n";
+    act_color = "%w";
+    nick = "yes";
+    word = "yes";
+    regexp = "yes";
+  }
+);
