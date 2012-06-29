@@ -12,7 +12,8 @@ set infercase
 set backspace=indent,eol,start
 set nowrap
 
-colorscheme darkblue
+set t_Co=256
+colorscheme desert256
 
 syntax on
 
@@ -40,7 +41,6 @@ autocmd FileType text set wrap
 
 " parse .xhtml as .html
 au BufRead,BufNewFile *.xhtml set filetype=html
-au BufRead,BufNewFile *.xhtml filetype indent off
 au BufRead,BufNewFile *.xhtml set indentexpr=
 
 autocmd BufRead,BufNewFile *.as set filetype=actionscript
@@ -109,3 +109,15 @@ vnoremap <esc><up> :m-2<CR>gv
 
 autocmd VimEnter * Alias q qa
 autocmd VimEnter * Alias wq wqa
+
+filetype indent on
+set expandtab
+"set tabstop=4
+"set shiftwidth=4
+
+set encoding=utf-8
+setglobal fileencoding=utf-8
+"setglobal bomb " byte order marks aren't actually used
+set fileencodings=utf-8,latin1
+
+source /usr/share/vim/plugin/ropevim.vim
