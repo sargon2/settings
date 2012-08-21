@@ -9,6 +9,13 @@ alias fgrep="fgrep --color=auto"
 alias ll="ls -la"
 alias l="ls"
 alias tree="tree -F -C"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+alias ........="cd ../../../../../../.."
 
 # my common usernames...
 zstyle ':completion:*:(ssh|scp):*' users besen dbesen sargon ${(k)userdirs}
@@ -93,6 +100,8 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.class' '*.pyc' '*.pyo'
 export TZ='America/Denver'
 
 export PATH=$PATH:/home/besen/git-scripts
+
+export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
         export TERM='xterm-256color'
