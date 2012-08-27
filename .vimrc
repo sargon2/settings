@@ -120,4 +120,6 @@ setglobal fileencoding=utf-8
 "setglobal bomb " byte order marks aren't actually used
 set fileencodings=utf-8,latin1
 
-source /usr/share/vim/plugin/ropevim.vim
+if filereadable("/usr/share/vim/plugin/ropevim.vim")
+    source /usr/share/vim/plugin/ropevim.vim
+endif
