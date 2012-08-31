@@ -1,3 +1,4 @@
+# vim: expandtab tabstop=4 shiftwidth=4
 
 # Set up dir colors for ls and zsh tab completion
 eval $(dircolors -b)
@@ -137,3 +138,11 @@ function precmd() {
 function preexec() {
     title "$1" "%m:%35<...<%~"
 }
+
+# If dropbox is installed, show its status
+if [ -e ~/dropbox.py ]; then
+    echo
+    echo -n "Dropbox status: "
+    ~/dropbox.py status
+fi
+
