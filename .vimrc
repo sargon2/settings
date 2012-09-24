@@ -112,6 +112,8 @@ autocmd VimEnter * Alias wq wqa
 
 filetype indent on
 set expandtab
+autocmd FileType py set tabstop=4
+autocmd FileType py set shiftwidth=4
 "set tabstop=4
 "set shiftwidth=4
 
