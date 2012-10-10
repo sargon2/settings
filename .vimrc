@@ -107,6 +107,10 @@ inoremap <esc><up> <Esc>:m-2<CR>gi
 vnoremap <esc><down> :m'>+<CR>gv
 vnoremap <esc><up> :m-2<CR>gv
 
+"make regular expressions more sane
+:nnoremap / /\v
+:cnoremap s/ s/\v
+
 autocmd VimEnter * Alias q qa
 autocmd VimEnter * Alias wq wqa
 
