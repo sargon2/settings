@@ -101,7 +101,7 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.class' '*.pyc' '*.pyo'
 
 export TZ='America/Denver'
 
-export PATH=$PATH:/home/besen/git-scripts
+export PATH=$PATH:/home/besen/git-scripts:/home/besen/bin
 
 export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 
