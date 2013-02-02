@@ -1,0 +1,46 @@
+#!/bin/sh
+
+# Current problem: 255 is not a good check for success
+
+for ARG in $@
+do
+        if [[ $ARG != -* ]]; then
+                URI=$ARG
+        fi
+done
+
+HOSTNAME=$(echo $URI | sed -r s/^[^@]+@//g)
+
+SSH_CMD="/usr/bin/ssh -o PasswordAuthentication=no $@"
+
+# Attempt to ssh with password entry disabled
+$SSH_CMD
+RETCODE=$?
+# 255 for password auth wrong
+# 255 for known_hosts wrong
+
+# But commands can return 255, and then ssh does too! what to do about that?
+if [ $RETCODE -ne 255 ]; then
+        # Success
+        exit 0
+fi
+
+# Replace the host key in known_hosts
+ssh-keygen -R $HOSTNAME
+ssh-keyscan $HOSTNAME >> ~/.ssh/known_hosts
+
+# todo: this code is duplicated from above
+$SSH_CMD
+RETCODE=$?
+# 255 for password auth wrong
+# 255 for known_hosts wrong
+
+if [ $RETCODE -ne 255 ]; then
+        # Success
+        exit 0
+fi
+
+# Now, if it still failed, it's probably authentication
+ssh-copy-id $URI
+$SSH_CMD
+
