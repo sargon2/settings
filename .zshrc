@@ -142,9 +142,9 @@ function preexec() {
 }
 
 # If dropbox is installed, show its status
-if [ -e ~/dropbox.py ]; then
+if [ -e ~/bin/dropbox ]; then
     echo
     echo -n "Dropbox status: "
-    ~/dropbox.py status
+    ~/bin/dropbox status
 fi
 
