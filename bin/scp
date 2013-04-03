@@ -3,6 +3,7 @@
 set -e
 
 # problem: this loop assumes the host is the last non-hyphen arg... is it always?
+# problem: we have to wait for the ssh to complete even if everything is already working
 
 for ARG in $@
 do
@@ -12,8 +13,6 @@ do
 done
 
 URI=$(echo $URI_WITH_COLON | sed -r s/:[^:]*//g)
-
-echo "uri is $URI"
 
 # HOSTNAME=$(echo $URI | sed -r s/^[^@]+@//g)
 
