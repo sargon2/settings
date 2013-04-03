@@ -24,7 +24,7 @@ RETCODE=$?
 # But commands can return 255, and then ssh does too! what to do about that?
 if [ $RETCODE -ne 255 ]; then
         # Success
-        exit 0
+        exit $RETCODE
 fi
 
 # Replace the host key in known_hosts
@@ -39,7 +39,7 @@ RETCODE=$?
 
 if [ $RETCODE -ne 255 ]; then
         # Success
-        exit 0
+        exit $RETCODE
 fi
 
 # Now, if it still failed, it's probably authentication

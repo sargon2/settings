@@ -1,9 +1,6 @@
 #!/bin/sh
 
-set -e
-
 # problem: this loop assumes the host is the last non-hyphen arg... is it always?
-# problem: we have to wait for the ssh to complete even if everything is already working
 
 for ARG in $@
 do
@@ -16,6 +13,18 @@ URI=$(echo $URI_WITH_COLON | sed -r s/:[^:]*//g)
 
 # HOSTNAME=$(echo $URI | sed -r s/^[^@]+@//g)
 
+SCP_CMD="/usr/bin/scp -o PasswordAuthentication=no $@"
+
+$SCP_CMD
+RETCODE=$?
+# 1: permission denied
+
+if [ $RETCODE -ne 1 ]; then
+        # Success
+        exit $RETCODE
+fi
+
+# If it didn't work, let the ssh script handle why
 ~/bin/ssh $URI "exit 0"
 
-/usr/bin/scp $@
+$SCP_CMD
