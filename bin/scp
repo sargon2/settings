@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -e
+
+# problem: this loop assumes the host is the last non-hyphen arg... is it always?
+
+for ARG in $@
+do
+        if [[ $ARG != -* ]]; then
+                URI_WITH_COLON=$ARG
+        fi
+done
+
+URI=$(echo $URI_WITH_COLON | sed -r s/:[^:]*//g)
+
+echo "uri is $URI"
+
+# HOSTNAME=$(echo $URI | sed -r s/^[^@]+@//g)
+
+~/bin/ssh $URI "exit 0"
+
+/usr/bin/scp $@
