@@ -4,7 +4,7 @@
 
 for ARG in $@
 do
-        if [[ $ARG != -* ]]; then
+        if [[ $ARG == *:* ]]; then
                 URI_WITH_COLON=$ARG
         fi
 done
