@@ -13,7 +13,7 @@ done
 
 HOSTNAME=$(echo $URI | sed -r s/^[^@]+@//g)
 
-SSH_CMD="/usr/bin/ssh -o PasswordAuthentication=no $@"
+SSH_CMD="/usr/bin/ssh -o PasswordAuthentication=no -o StrictHostKeyChecking=no $@"
 
 # Attempt to ssh with password entry disabled
 $SSH_CMD

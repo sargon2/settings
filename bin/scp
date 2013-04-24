@@ -13,7 +13,7 @@ URI=$(echo $URI_WITH_COLON | sed -r s/:[^:]*//g)
 
 # HOSTNAME=$(echo $URI | sed -r s/^[^@]+@//g)
 
-SCP_CMD="/usr/bin/scp -o PasswordAuthentication=no $@"
+SCP_CMD="/usr/bin/scp -o PasswordAuthentication=no -o StrictHostKeyChecking=no $@"
 
 $SCP_CMD
 RETCODE=$?
