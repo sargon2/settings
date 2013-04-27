@@ -5,6 +5,7 @@ set ruler
 set incsearch
 set hlsearch
 set nobackup
+set noswapfile
 set showcmd
 set timeoutlen=0
 set ignorecase
