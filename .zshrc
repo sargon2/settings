@@ -143,10 +143,11 @@ function preexec() {
     title "$1" "%m:%35<...<%~"
 }
 
-# If dropbox is installed, show its status
+# If dropbox is installed, check if it's running, and start it if not
 if [ -e ~/bin/dropbox ]; then
-    echo
-    echo -n "Dropbox status: "
-    ~/bin/dropbox status
+    if dropbox status 2>&1 | grep -q -i "isn't running"
+    then
+        ~/bin/dropbox start
+    fi
 fi
 
