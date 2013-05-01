@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# TODO: show even more helpful information, like the other zsh git prompts
+
 if git rev-parse --git-dir > /dev/null 2>&1
 then
         echo -n "["
