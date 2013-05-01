@@ -59,6 +59,8 @@ autoload -U promptinit
 promptinit
 prompt walters
 PS1='%n@%m> '
+setopt prompt_subst
+RPROMPT='%F{green}$(git-rprompt)%~%f'
 bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
 case $TERM in (xterm*)
