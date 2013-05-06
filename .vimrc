@@ -16,6 +16,7 @@ set nowrap
 set t_Co=256
 colorscheme desert256
 
+
 syntax on
 
 " If we're in the middle of a word, tab-complete it, otherwise insert a tab
@@ -130,3 +131,9 @@ set fileencodings=utf-8,latin1
 if filereadable("/usr/share/vim/plugin/ropevim.vim")
     source /usr/share/vim/plugin/ropevim.vim
 endif
+
+"make vimdiff more readable
+:highlight! link DiffChange Normal
+:highlight! link DiffText CursorLine
+:highlight! link DiffAdd TabLine
+:highlight! link DiffDelete Ignore
