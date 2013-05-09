@@ -153,3 +153,5 @@ if [ -e ~/bin/dropbox ]; then
     fi
 fi
 
+# Turn on unicode support
+export LANG="en_US.UTF-8"
