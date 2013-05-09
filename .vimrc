@@ -137,3 +137,6 @@ endif
 :highlight! link DiffText CursorLine
 :highlight! link DiffAdd TabLine
 :highlight! link DiffDelete Ignore
+
+" Remove whitespace at the end of lines for some file types
+autocmd BufWritePre *.cpp,*.c,*.hpp,*.h,*.java,*.py %s/\s\+$//ge
