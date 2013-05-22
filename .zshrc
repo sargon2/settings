@@ -155,3 +155,6 @@ fi
 
 # Turn on unicode support
 export LANG="en_US.UTF-8"
+
+# Workaround for dbus not properly exiting
+export DBUS_SESSION_BUS_ADDRESS=:0.0
