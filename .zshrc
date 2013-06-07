@@ -41,7 +41,7 @@ zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'm:{a-zA-Z}={A-Za-z}' 'm:{a-zA-Z}={A-Za-z}' 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' original true
-zstyle :compinstall filename '/home/sargon/.zshrc'
+#zstyle :compinstall filename '/home/sargon/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -91,6 +91,7 @@ setopt incappendhistory
 bindkey "^R" history-incremental-search-backward
 bindkey "^U" backward-kill-line
 bindkey "^Y" yank
+bindkey "^?" backward-delete-char # the default is vi-backward-delete-char, which actually fills the ^y buffer
 
 zstyle ':completion:*:(rm|kill|diff):*' ignore-line other
 
