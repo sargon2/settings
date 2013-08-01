@@ -1,11 +1,8 @@
-servers = (
-);
+servers = ( );
 
-chatnets = {
-};
+chatnets = { };
 
-channels = (
-);
+channels = ( );
 
 aliases = {
   J = "join";
@@ -235,7 +232,11 @@ keyboard = (
 );
 ignores = ( );
 hilights = ( );
-conversions = { "#japanese" = "iso-2022-jp"; jBot = "iso-2022-jp"; };
+conversions = {
+  "#japanese" = "iso-2022-jp";
+  jBot = "iso-2022-jp";
+  a_a = "iso-2022-jp";
+};
 windows = {
   1 = {
     immortal = "yes";
