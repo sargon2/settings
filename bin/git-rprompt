@@ -1,26 +1,28 @@
 #!/bin/bash
 
+# TODO: git status is too slow in large repos
 # TODO: show more useful information.  What else?
 # TODO: more color?
 
 if git rev-parse --git-dir > /dev/null 2>&1
 then
+        gst=`git status`
         echo -n "["
         git rev-parse --abbrev-ref HEAD | tr -d '\n'
-        num=`git status | grep ahead | awk '{print $9}'`
+        num=`grep ahead <<< "$gst" | awk '{print $9}'`
         if [ ! -z "$num" ] && [ "$num" -gt "0" ]; then
                 echo -n "+$num"
         fi
-        num=`git status | grep behind | awk '{print $8}'`
+        num=`grep behind <<< "$gst" | awk '{print $8}'`
         if [ ! -z "$num" ] && [ "$num" -gt "0" ]; then
                 echo -n "-$num"
         fi
-        a=`git status | grep different`
+        a=`grep different <<< "$gst"`
         rc=$?
         if [[ $rc == 0 ]] ; then
                 echo -n "?"
         fi
-        a=`git status | egrep "Changed but not updated|Changes to be committed|Untracked files"`
+        a=`egrep "Changed but not updated|Changes to be committed|Untracked files" <<< "$gst"`
         rc=$?
         if [[ $rc == 0 ]] ; then
                 echo -n "*"
