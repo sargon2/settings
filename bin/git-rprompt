@@ -1,10 +1,29 @@
 #!/bin/bash
 
-# TODO: show even more helpful information, like the other zsh git prompts
+# TODO: show more useful information.  What else?
+# TODO: more color?
 
 if git rev-parse --git-dir > /dev/null 2>&1
 then
         echo -n "["
         git rev-parse --abbrev-ref HEAD | tr -d '\n'
+        num=`git status | grep ahead | awk '{print $9}'`
+        if [ ! -z "$num" ] && [ "$num" -gt "0" ]; then
+                echo -n "+$num"
+        fi
+        num=`git status | grep behind | awk '{print $8}'`
+        if [ ! -z "$num" ] && [ "$num" -gt "0" ]; then
+                echo -n "-$num"
+        fi
+        a=`git status | grep different`
+        rc=$?
+        if [[ $rc == 0 ]] ; then
+                echo -n "?"
+        fi
+        a=`git status | egrep "Changed but not updated|Changes to be committed|Untracked files"`
+        rc=$?
+        if [[ $rc == 0 ]] ; then
+                echo -n "*"
+        fi
         echo -n "] "
 fi
