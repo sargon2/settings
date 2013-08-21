@@ -1,4 +1,31 @@
 set nocompatible
+
+" Vundle
+" To install: git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+filetype off " will be turned back on later
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" let Vundle manage Vundle (required!)
+Bundle 'gmarik/vundle'
+
+" My bundles here:
+
+" repos on github
+Bundle 'bartman/git-wip'
+" TODO: checksyntax isn't working for python
+Bundle 'tomtom/checksyntax_vim'
+
+" vim-scripts plugins
+Bundle 'desert256.vim'
+Bundle 'yaifa.vim'
+Bundle 'openssl.vim'
+Bundle 'cmdalias.vim'
+
+" TODO: automatically run vundle on startup? is it fast enough? surely at least BundleClean is...
+" End Vundle
+
+filetype plugin indent on
+
 set mouse=a
 set hidden
 set ruler
@@ -32,7 +59,6 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 
 set completeopt=longest,menuone
 
-filetype plugin on
 
 au BufRead,BufNewFile *.txt set filetype=text
 
@@ -116,7 +142,6 @@ vnoremap <esc><up> :m-2<CR>gv
 autocmd VimEnter * Alias q qa
 autocmd VimEnter * Alias wq wqa
 
-filetype indent on
 set expandtab
 autocmd FileType python set tabstop=4
 autocmd FileType python set shiftwidth=4

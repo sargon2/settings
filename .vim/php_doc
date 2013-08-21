@@ -1,4 +1,0 @@
-#!/bin/bash
-FUNCTION=`echo $1 | sed 's/_/-/g'`
-links -dump http://www.php.net/manual/en/print/function.$FUNCTION.php | grep -A 5 Description | grep $1
-
