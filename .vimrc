@@ -17,6 +17,7 @@ Bundle 'desert256.vim'
 Bundle 'yaifa.vim'
 Bundle 'openssl.vim'
 Bundle 'cmdalias.vim'
+Bundle 'davidhalter/jedi-vim'
 
 " TODO: tab completion that works right -- like bash/zsh (and shows a menu), and works with python etc
 
@@ -24,6 +25,10 @@ Bundle 'cmdalias.vim'
 " End Vundle
 
 filetype plugin indent on
+
+" jedi config
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#goto_command = "<F3>"
 
 set mouse=a
 set hidden
@@ -45,6 +50,7 @@ colorscheme desert256
 
 syntax on
 
+" TODO: use SuperTab instead of this
 " If we're in the middle of a word, tab-complete it, otherwise insert a tab
 function! CleverTab()
 "   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
@@ -148,5 +154,10 @@ endif
 :highlight! link DiffAdd TabLine
 :highlight! link DiffDelete Ignore
 
+"make omnicompletion more readable
+:highlight Pmenu ctermbg=238 gui=bold
+
 " Remove whitespace at the end of lines for some file types
 autocmd BufWritePre *.cpp,*.c,*.hpp,*.h,*.java,*.py %s/\s\+$//ge
+
+set foldlevelstart=99
