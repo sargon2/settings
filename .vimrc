@@ -10,16 +10,15 @@ Bundle 'gmarik/vundle'
 
 " My bundles here:
 
-" repos on github
 Bundle 'bartman/git-wip'
 " TODO: checksyntax isn't working for python
 Bundle 'tomtom/checksyntax_vim'
-
-" vim-scripts plugins
 Bundle 'desert256.vim'
 Bundle 'yaifa.vim'
 Bundle 'openssl.vim'
 Bundle 'cmdalias.vim'
+
+" TODO: tab completion that works right -- like bash/zsh (and shows a menu), and works with python etc
 
 " TODO: automatically run vundle on startup? is it fast enough? surely at least BundleClean is...
 " End Vundle
@@ -82,39 +81,27 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
-autocmd FileType php set keywordprg=~/.vim/php_doc
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-"set ww=b,s,h,l,<,>,[,]
-
 " Change yank to not affect the current cursor position (the default is to
 " move it to the start of the selection)
 vnoremap y myyg`y
 
-"these break omni-completion
-"map <Up> gk
-"imap <Up> <C-o>gk
-"map <Down> gj
-"imap <Down> <C-o>gj
 set linebreak
 
 au BufEnter * call MyLastWindow()
 
 function! MyLastWindow()
-	" if the window is quickfix go on
-	if &buftype=="quickfix"
-		" if this window is last on screen quit without warning
-		if winbufnr(2) == -1
-			quit!
-		endif
-	endif
+    " if the window is quickfix go on
+    if &buftype=="quickfix"
+        " if this window is last on screen quit without warning
+        if winbufnr(2) == -1
+            quit!
+        endif
+    endif
 endfunction
 
 map <s-down> j
 map <s-up> k
 
-if &omnifunc == ""
-	set omnifunc=syntaxcomplete#Complete
-endif
 
 "make alt+# swap buffers
 nmap <esc>1 :b 1<CR>
@@ -143,10 +130,8 @@ autocmd VimEnter * Alias q qa
 autocmd VimEnter * Alias wq wqa
 
 set expandtab
-autocmd FileType python set tabstop=4
-autocmd FileType python set shiftwidth=4
-"set tabstop=4
-"set shiftwidth=4
+set tabstop=4
+set shiftwidth=4
 
 set encoding=utf-8
 setglobal fileencoding=utf-8
