@@ -50,7 +50,6 @@ colorscheme desert256
 
 syntax on
 
-" TODO: use SuperTab instead of this
 " If we're in the middle of a word, tab-complete it, otherwise insert a tab
 function! CleverTab()
 "   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
