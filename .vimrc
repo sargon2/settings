@@ -19,8 +19,6 @@ Bundle 'openssl.vim'
 Bundle 'cmdalias.vim'
 Bundle 'davidhalter/jedi-vim'
 
-" TODO: tab completion that works right -- like bash/zsh (and shows a menu), and works with python etc
-
 " TODO: automatically run vundle on startup? is it fast enough? surely at least BundleClean is...
 " End Vundle
 

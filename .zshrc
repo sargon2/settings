@@ -112,10 +112,10 @@ export PATH=$PATH:/home/besen/git-scripts:/home/besen/bin
 
 export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+if [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /lib/terminfo/x/xterm-256color ]; then
         export TERM='xterm-256color'
 else
-        export TERM='xterm-color'
+        export TERM='xterm'
 fi
 
 function title() {
