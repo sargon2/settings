@@ -22,7 +22,7 @@ then
         if [[ $rc == 0 ]] ; then
                 echo -n "?"
         fi
-        a=`egrep "Changed but not updated|Changes to be committed|Untracked files" <<< "$gst"`
+        a=`egrep "Changed but not updated|Changes to be committed|Untracked files|Changes not staged for commit" <<< "$gst"`
         rc=$?
         if [[ $rc == 0 ]] ; then
                 echo -n "*"
