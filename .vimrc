@@ -11,8 +11,7 @@ Bundle 'gmarik/vundle'
 " My bundles here:
 
 Bundle 'bartman/git-wip'
-" TODO: checksyntax isn't working for python
-Bundle 'tomtom/checksyntax_vim'
+Bundle 'scrooloose/syntastic'
 Bundle 'desert256.vim'
 Bundle 'yaifa.vim'
 Bundle 'openssl.vim'
