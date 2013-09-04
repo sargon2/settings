@@ -27,6 +27,9 @@ filetype plugin indent on
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#goto_command = "<F3>"
 
+" invoke git-wip
+so ~/.vim/bundle/git-wip/vim/plugin/git-wip.vim
+
 set mouse=a
 set hidden
 set ruler
