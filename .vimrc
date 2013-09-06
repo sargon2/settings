@@ -63,6 +63,14 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 
 set completeopt=longest,menuone
 
+" highlight trailing whitespace (from http://vim.wikia.com/wiki/Highlight_unwanted_spaces)
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
 
 au BufRead,BufNewFile *.txt set filetype=text
 
