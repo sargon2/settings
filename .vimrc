@@ -44,6 +44,10 @@ set infercase
 set backspace=indent,eol,start
 set nowrap
 
+" Make tab completion for files work like bash (for :e etc)
+set nowildmenu
+set wildmode=longest,list
+
 set t_Co=256
 colorscheme desert256
 
