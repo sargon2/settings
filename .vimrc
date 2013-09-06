@@ -140,8 +140,9 @@ vnoremap <esc><down> :m'>+<CR>gv
 vnoremap <esc><up> :m-2<CR>gv
 
 "make regular expressions more sane
-:nnoremap / /\v
-:cnoremap s/ s/\v
+nnoremap / /\v
+" TODO: make this work for :%s/.../.../g -- it doesn't work because timeout is set to zero
+cnoremap s/ s/\v
 
 autocmd VimEnter * Alias q qa
 autocmd VimEnter * Alias wq wqa
@@ -164,6 +165,7 @@ endif
 :highlight! link DiffText CursorLine
 :highlight! link DiffAdd TabLine
 :highlight! link DiffDelete Ignore
+" TODO: make vimdiff not fold things by default
 
 "make omnicompletion more readable
 :highlight Pmenu ctermbg=238 gui=bold
