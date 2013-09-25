@@ -33,11 +33,14 @@ zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 
 zstyle ':completion:*' verbose yes
 
-
-# The following lines were added by compinstall
+# Avoid having to manually run rehash
+_force_rehash() {
+    (( CURRENT == 1 )) && rehash
+    return 1 # Because we didn't really complete anything
+}
 
 zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _ignored
+zstyle ':completion:*' completer _expand _force_rehash _complete _ignored
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'm:{a-zA-Z}={A-Za-z}' 'm:{a-zA-Z}={A-Za-z}' 'm:{a-zA-Z}={A-Za-z}'
@@ -46,16 +49,13 @@ zstyle ':completion:*' original true
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
+
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 setopt extendedglob
 setopt dotglob
 bindkey -v
-# End of lines configured by zsh-newuser-install
-#
 
 autoload -U promptinit
 promptinit
