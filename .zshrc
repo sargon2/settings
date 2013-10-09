@@ -161,3 +161,6 @@ export LANG="en_US.UTF-8"
 
 # Workaround for dbus not properly exiting
 export DBUS_SESSION_BUS_ADDRESS=:0.0
+
+# Disable ^s scroll locking
+stty -ixon -ixoff -ixany
