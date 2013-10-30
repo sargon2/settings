@@ -17,6 +17,7 @@ Bundle 'yaifa.vim'
 Bundle 'openssl.vim'
 Bundle 'cmdalias.vim'
 Bundle 'davidhalter/jedi-vim'
+Bundle 'tpope/vim-fugitive'
 
 " TODO: automatically run vundle on startup? is it fast enough? surely at least BundleClean is...
 " End Vundle
