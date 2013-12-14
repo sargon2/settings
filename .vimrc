@@ -91,6 +91,11 @@ au BufRead,BufNewFile *.xhtml set indentexpr=
 autocmd BufRead,BufNewFile *.as set filetype=actionscript
 autocmd BufRead,BufNewFile *.mxml set filetype=mxml
 
+" inform 7
+autocmd BufRead,BufNewFile *.ni set filetype=inform7
+autocmd FileType inform7 set wrap
+autocmd FileType inform7 set nu
+
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
