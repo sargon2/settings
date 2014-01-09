@@ -180,3 +180,9 @@ endif
 autocmd BufWritePre *.cpp,*.c,*.hpp,*.h,*.java,*.py %s/\s\+$//ge
 
 set foldlevelstart=99
+
+" Change the way folding works for plain text files
+autocmd FileType text setlocal foldmethod=expr
+autocmd FileType text setlocal foldexpr=(indent(v:lnum)<indent(v:lnum+1))?('>'.(1+(indent(v:lnum)/&shiftwidth))):'='
+autocmd FileType text set foldtext=getline(v:foldstart)
+autocmd FileType text set fillchars=fold:\ "(there's a space after that \)
