@@ -182,7 +182,31 @@ autocmd BufWritePre *.cpp,*.c,*.hpp,*.h,*.java,*.py %s/\s\+$//ge
 set foldlevelstart=99
 
 " Change the way folding works for plain text files
+function! MyFoldLevel(lnum)
+    " There are N cases:
+    " Line 1 <-- fold starts
+    "   Line 2
+    "
+    " Line 1 <-- no fold starts
+    " Line 2
+    "
+    "   Line 1 <-- fold ends
+    " Line 2
+    "
+    "     Line 1 <-- 2 folds end
+    " Line 2
+    if getline(a:lnum) =~ '^$'
+        return -1 " should this be '='?
+    endif
+    let ind = 1+(indent(a:lnum)/&shiftwidth)
+    let next_ind = 1+(indent(a:lnum+1)/&shiftwidth)
+    " let prev_ind = 1+(indent(a:lnum-1)/&shiftwidth)
+    if ind < next_ind
+        return '>'.next_ind
+    endif
+    return ind
+endfunction
 autocmd FileType text setlocal foldmethod=expr
-autocmd FileType text setlocal foldexpr=(indent(v:lnum)<indent(v:lnum+1))?('>'.(1+(indent(v:lnum)/&shiftwidth))):'='
+autocmd FileType text setlocal foldexpr=MyFoldLevel(v:lnum)
 autocmd FileType text set foldtext=getline(v:foldstart)
 autocmd FileType text set fillchars=fold:\ "(there's a space after that \)
