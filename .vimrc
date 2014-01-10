@@ -195,7 +195,7 @@ function! MyFoldLevel(lnum)
     "
     "     Line 1 <-- 2 folds end
     " Line 2
-    if getline(a:lnum) =~ '^$'
+    if getline(a:lnum) =~ '^\s*$'
         return -1 " should this be '='?
     endif
     let ind = (indent(a:lnum)/&shiftwidth)
