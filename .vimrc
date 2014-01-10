@@ -198,9 +198,9 @@ function! MyFoldLevel(lnum)
     if getline(a:lnum) =~ '^$'
         return -1 " should this be '='?
     endif
-    let ind = 1+(indent(a:lnum)/&shiftwidth)
-    let next_ind = 1+(indent(a:lnum+1)/&shiftwidth)
-    " let prev_ind = 1+(indent(a:lnum-1)/&shiftwidth)
+    let ind = (indent(a:lnum)/&shiftwidth)
+    let next_ind = (indent(a:lnum+1)/&shiftwidth)
+    " let prev_ind = (indent(a:lnum-1)/&shiftwidth)
     if ind < next_ind
         return '>'.next_ind
     endif
