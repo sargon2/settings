@@ -156,6 +156,8 @@ function preexec() {
 if [ -e ~/bin/dropbox ]; then
     if dropbox status 2>&1 | grep -q -i "isn't running"
     then
+        # If dropbox starts but blocks logout and dies when you close the session,
+        # 'service messagebus restart' seems to fix it (centos)
         ~/bin/dropbox start
     fi
 fi
