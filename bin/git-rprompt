@@ -9,11 +9,11 @@ then
         gst=`git status 2>/dev/null`
         echo -n "["
         git rev-parse --abbrev-ref HEAD | tr -d '\n'
-        num=`grep ahead <<< "$gst" | awk '{print $9}'`
+        num=`grep ahead <<< "$gst" | grep -o 'by [0-9]\+' | awk '{print $2}'`
         if [ ! -z "$num" ] && [ "$num" -gt "0" ]; then
                 echo -n "+$num"
         fi
-        num=`grep behind <<< "$gst" | awk '{print $8}'`
+        num=`grep behind <<< "$gst" | grep -o 'by [0-9]\+' | awk '{print $2}'`
         if [ ! -z "$num" ] && [ "$num" -gt "0" ]; then
                 echo -n "-$num"
         fi
