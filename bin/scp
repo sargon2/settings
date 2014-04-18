@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # problem: this loop assumes the host is the last non-hyphen arg... is it always?
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Current problem: 255 is not a good check for success
 # Another problem: this URI loop assumes the uri is the first non-hyphen arg... is that bad?
