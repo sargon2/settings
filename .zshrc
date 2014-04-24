@@ -152,21 +152,20 @@ function preexec() {
     title "$1" "%m:%35<...<%~"
 }
 
+# Workaround for dbus not properly exiting (prevents logout and kills dropbox otherwise)
+# sometimes 'service messagebus restart' seems to fix it (centos)
+export DBUS_SESSION_BUS_ADDRESS=:0.0
+
 # If dropbox is installed, check if it's running, and start it if not
 if [ -e ~/bin/dropbox ]; then
     if dropbox status 2>&1 | grep -q -i "isn't running"
     then
-        # If dropbox starts but blocks logout and dies when you close the session,
-        # 'service messagebus restart' seems to fix it (centos)
         ~/bin/dropbox start
     fi
 fi
 
 # Turn on unicode support
 export LANG="en_US.UTF-8"
-
-# Workaround for dbus not properly exiting
-export DBUS_SESSION_BUS_ADDRESS=:0.0
 
 # Disable ^s scroll locking
 stty -ixon -ixoff -ixany
