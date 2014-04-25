@@ -47,6 +47,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'm:{a-zA-Z}={A-Za-z}' 
 zstyle ':completion:*' original true
 #zstyle :compinstall filename '/home/sargon/.zshrc'
 
+# completion for pip
+eval "`pip completion --zsh`"
+
 autoload -Uz compinit
 compinit
 
