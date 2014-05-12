@@ -11,7 +11,8 @@ Bundle 'gmarik/vundle'
 " My bundles here:
 
 Bundle 'bartman/git-wip'
-Bundle 'scrooloose/syntastic'
+" Syntastic seems to hang when I :w java files
+" Bundle 'scrooloose/syntastic'
 Bundle 'desert256.vim'
 Bundle 'yaifa.vim'
 Bundle 'openssl.vim'
