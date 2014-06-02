@@ -163,7 +163,10 @@ export DBUS_SESSION_BUS_ADDRESS=:0.0
 if [ -e ~/bin/dropbox ]; then
     if dropbox status 2>&1 | grep -q -i "isn't running"
     then
+        DISPLAY_SAVE=$DISPLAY
+        unset DISPLAY
         ~/bin/dropbox start
+        DISPLAY=$DISPLAY_SAVE
     fi
 fi
 
