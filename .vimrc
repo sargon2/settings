@@ -153,6 +153,9 @@ nnoremap / /\v
 " TODO: make this work for :%s/.../.../g -- it doesn't work because timeout is set to zero
 cnoremap s/ s/\v
 
+"make :W save with sudo (kind of, doesn't mark the file as written)
+command W w !sudo tee % > /dev/null
+
 autocmd VimEnter * Alias q qa
 autocmd VimEnter * Alias wq wqa
 
