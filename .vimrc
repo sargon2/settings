@@ -216,3 +216,8 @@ autocmd FileType text setlocal foldmethod=expr
 autocmd FileType text setlocal foldexpr=MyFoldLevel(v:lnum)
 autocmd FileType text set foldtext=getline(v:foldstart)
 autocmd FileType text set fillchars=fold:\ "(there's a space after that \)
+
+" Persistent undo
+silent !mkdir -p ~/.vim/undodir >/dev/null 2>&1
+set undodir=~/.vim/undodir
+set undofile
