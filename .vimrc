@@ -221,3 +221,6 @@ autocmd FileType text set fillchars=fold:\ "(there's a space after that \)
 silent !mkdir -p ~/.vim/undodir >/dev/null 2>&1
 set undodir=~/.vim/undodir
 set undofile
+
+" allow the cursor off the end of the line to the right
+set virtualedit=all
