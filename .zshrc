@@ -48,7 +48,9 @@ zstyle ':completion:*' original true
 #zstyle :compinstall filename '/home/sargon/.zshrc'
 
 # completion for pip
-eval "`pip completion --zsh`"
+if [[ -x $(which pip) ]]; then
+    eval "`pip completion --zsh`"
+fi
 
 autoload -Uz compinit
 compinit
