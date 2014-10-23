@@ -4,27 +4,26 @@ set nocompatible
 " To install: git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 filetype off " will be turned back on later
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle (required!)
-Bundle 'gmarik/vundle'
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
 
-" My bundles here:
-
-Bundle 'bartman/git-wip'
+" My plugins
+Plugin 'bartman/git-wip'
 " Syntastic seems to hang when I :w java files
-" Bundle 'scrooloose/syntastic'
-Bundle 'desert256.vim'
-Bundle 'yaifa.vim'
-Bundle 'openssl.vim'
-Bundle 'cmdalias.vim'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
+" Plugin 'scrooloose/syntastic'
+Plugin 'desert256.vim'
+Plugin 'Raimondi/YAIFA'
+Plugin 'openssl.vim'
+Plugin 'cmdalias.vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
 
 " TODO: automatically run vundle on startup? is it fast enough? surely at least BundleClean is...
-" End Vundle
 
-filetype plugin indent on
+call vundle#end()
+filetype plugin indent on " required for vundle
 
 " jedi config
 let g:jedi#use_tabs_not_buffers = 0
