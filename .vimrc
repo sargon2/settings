@@ -46,7 +46,6 @@ set infercase
 set backspace=indent,eol,start
 set nowrap
 set scrolloff=5
-set formatoptions=tcqnj
 
 " Make tab completion for files work like bash (for :e etc)
 set nowildmenu
@@ -216,6 +215,10 @@ autocmd FileType text setlocal foldmethod=expr
 autocmd FileType text setlocal foldexpr=MyFoldLevel(v:lnum)
 autocmd FileType text set foldtext=getline(v:foldstart)
 autocmd FileType text set fillchars=fold:\ "(there's a space after that \)
+
+" We can't do this with a normal set because it gets overridden by filetype
+" plugins
+autocmd FileType * setlocal formatoptions=tcqnj
 
 " Persistent undo
 silent !mkdir -p ~/.vim/undodir >/dev/null 2>&1
