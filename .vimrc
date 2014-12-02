@@ -1,7 +1,11 @@
 set nocompatible
 
 " Vundle
-" To install: git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+if !isdirectory(expand("~/.vim/bundle/vundle"))
+    silent !git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    let s:setupvundle=1
+endif
+
 filetype off " will be turned back on later
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
@@ -23,7 +27,12 @@ Plugin 'kien/ctrlp.vim'
 " TODO: automatically run vundle on startup? is it fast enough? surely at least BundleClean is...
 
 call vundle#end()
-filetype plugin indent on " required for vundle
+filetype plugin indent on
+if exists('s:setupvundle') && s:setupvundle
+    unlet s:setupvundle
+    PluginInstall
+    quitall
+endif
 
 " jedi config
 let g:jedi#use_tabs_not_buffers = 0
