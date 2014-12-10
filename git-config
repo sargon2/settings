@@ -1,0 +1,27 @@
+#!/bin/bash -ex
+
+rm -f ~/.gitconfig
+
+git config --global user.email "dbesen@gmail.com"
+git config --global user.name "David Besen"
+git config --global color.ui "true"
+git config --global difftool.sdiff.cmd "sdiff -l -d "$LOCAL" "$REMOTE""
+git config --global difftool.prompt "false"
+git config --global alias.vimdiff "difftool -t vimdiff"
+git config --global alias.sdiff "difftool -t sdiff"
+git config --global branch.autosetuprebase "always"
+git config --global log.date "local"
+git config --global core.sparsecheckout "true"
+git config --global core.repositoryformatversion "0"
+git config --global core.filemode "true"
+git config --global core.bare "false"
+git config --global core.logallrefupdates "true"
+git config --global core.editor vim
+git config --global rerere.enabled true
+git config --global merge.conflictstyle diff3
+git config --global alias.really-clean 'clean -X -d -f'
+git config --global alias.would-clean 'clean -X -d -n'
+git config --global git-up.fetch.all true
+git config --global git-up.bundler.check true
+git config --global push.default simple
+git config --global http.sslVerify false
