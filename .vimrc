@@ -20,9 +20,11 @@ Plugin 'desert256.vim'
 Plugin 'Raimondi/YAIFA'
 Plugin 'openssl.vim'
 Plugin 'cmdalias.vim'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
+Plugin 'VOoM'
+Plugin 'klen/python-mode'
 
 " TODO: automatically run vundle on startup? is it fast enough? surely at least BundleClean is...
 
@@ -34,12 +36,30 @@ if exists('s:setupvundle') && s:setupvundle
     quitall
 endif
 
-" jedi config
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#goto_assignments_command = "<F3>"
+" pymode config
+
+" let g:pymode_rope_organize_imports_bind = '<C-c>ro'
+" let g:pymode_rope_autoimport_bind = '<C-c>ra'  " Should be enabled 'g:pymode_rope_autoimport'
+" let g:pymode_rope_module_to_package_bind = '<C-c>r1p'
+" let g:pymode_rope_use_function_bind = '<C-c>ru'
+" let g:pymode_rope_move_bind = '<C-c>rv'
+" let g:pymode_rope_change_signature_bind = '<C-c>rs'
+
+
+let g:pymode_options = 0 " Turn off 79-col max, etc
+let g:pymode_lint = 0
+let g:pymode_lint_write = 0
+let g:pymode_rope = 1
+let g:pymode_rope_rename_bind = '<F2>'
+" let g:pymode_rope_rename_module_bind = '<F2>'
+let g:pymode_rope_goto_definition_bind = '<F3>'
+let g:pymode_rope_goto_definition_cmd = 'new' " e, new, vnew
+let g:pymode_rope_extract_method_bind = '<F4>'
+let g:pymode_rope_extract_variable_bind = '<F5>'
 
 " invoke git-wip
 so ~/.vim/bundle/git-wip/vim/plugin/git-wip.vim
+
 
 set mouse=a
 set hidden
@@ -176,8 +196,9 @@ setglobal fileencoding=utf-8
 "setglobal bomb " byte order marks aren't actually used
 set fileencodings=utf-8,latin1
 
-if filereadable("/usr/share/vim/plugin/ropevim.vim")
-    source /usr/share/vim/plugin/ropevim.vim
+" pip install ropevim
+if filereadable("/usr/local/share/vim/plugin/ropevim.vim")
+    source /usr/local/share/vim/plugin/ropevim.vim
 endif
 
 "make vimdiff more readable
