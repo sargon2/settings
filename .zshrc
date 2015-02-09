@@ -22,6 +22,8 @@ alias ........="cd ../../../../../../.."
 alias ssh="~/bin/ssh"
 alias scp="~/bin/scp"
 alias gst="git status -u"
+alias gb="git branch -vv"
+alias gba="git branch -vv -a"
 
 # my common usernames...
 zstyle ':completion:*:(ssh|scp):*' users besen dbesen sargon ${(k)userdirs}
