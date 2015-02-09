@@ -20,11 +20,11 @@ Plugin 'desert256.vim'
 Plugin 'Raimondi/YAIFA'
 Plugin 'openssl.vim'
 Plugin 'cmdalias.vim'
-" Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'VOoM'
-Plugin 'klen/python-mode'
+" Plugin 'klen/python-mode'
 
 " TODO: automatically run vundle on startup? is it fast enough? surely at least BundleClean is...
 
@@ -35,6 +35,12 @@ if exists('s:setupvundle') && s:setupvundle
     PluginInstall
     quitall
 endif
+
+" jedi config
+
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#goto_assignments_command = "<F3>"
+
 
 " pymode config
 
