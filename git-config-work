@@ -3,4 +3,4 @@
 ./git-config
 git config --global user.email "david.besen@hp.com"
 git config --global http.proxy "web-proxy.austin.hp.com:8080"
-git config --global gitreview.username "david.besen"
+git config --global gitreview.username "besen"
