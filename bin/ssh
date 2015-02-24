@@ -45,4 +45,15 @@ fi
 # Now, if it still failed, it's probably authentication
 ssh-copy-id $URI
 $SSH_CMD
+RETCODE=$?
+# 255 for password auth wrong
+# 255 for known_hosts wrong
 
+if [ $RETCODE -ne 255 ]; then
+        # Success
+        exit $RETCODE
+fi
+
+# Now, if it failed, the remote host simply doesn't support passwordless auth.  Fall back on normal SSH.
+echo "Passwordless auth not supported?"
+/usr/bin/ssh $@
