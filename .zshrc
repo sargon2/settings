@@ -24,6 +24,7 @@ alias scp="~/bin/scp"
 alias gst="git status -u"
 alias gb="git branch -vv"
 alias gba="git branch -vv -a"
+alias dh="dirs -v"
 
 # my common usernames...
 zstyle ':completion:*:(ssh|scp):*' users besen dbesen sargon ${(k)userdirs}
@@ -100,6 +101,7 @@ setopt autoparamslash
 unsetopt nomatch
 unsetopt nullglob
 setopt incappendhistory
+setopt autopushd pushdignoredups pushdtohome
 
 bindkey "^R" history-incremental-search-backward
 bindkey "^U" backward-kill-line
@@ -179,3 +181,6 @@ export LANG="en_US.UTF-8"
 
 # Disable ^s scroll locking
 stty -ixon -ixoff -ixany
+
+# Reload dirstack
+for line in `tac ~/.dirstack`; do eval pushd $line > /dev/null; done 
