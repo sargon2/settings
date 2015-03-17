@@ -182,5 +182,8 @@ export LANG="en_US.UTF-8"
 # Disable ^s scroll locking
 stty -ixon -ixoff -ixany
 
-# Reload dirstack
-for line in `tac ~/.dirstack`; do eval pushd $line > /dev/null; done 
+# Load the saved Zdirs Stack (http://hints.macworld.com/article.php?story=20050806202859392)
+if [ -f ~/.zdirs -a ${#dirstack} -eq 0 ]; then
+    dirstack=( ${(f)"$(< ~/.zdirs)"} )
+    popd > /dev/null
+fi
