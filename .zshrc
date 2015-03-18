@@ -86,7 +86,6 @@ bindkey OF end-of-line
 bindkey '[5~' up-line-or-history
 bindkey '[6~' down-line-or-history
 bindkey '\e[3~' delete-char
-bindkey '\e.' insert-last-word
 unsetopt automenu
 unsetopt menucomplete
 setopt listpacked
@@ -108,6 +107,12 @@ bindkey "^R" history-incremental-search-backward
 bindkey "^U" backward-kill-line
 bindkey "^Y" yank
 bindkey "^?" backward-delete-char # the default is vi-backward-delete-char, which actually fills the ^y buffer
+
+# Get args from previous commands with alt-. and alt-m
+autoload -Uz copy-earlier-word
+zle -N copy-earlier-word
+bindkey '\em' copy-earlier-word
+bindkey '\e.' insert-last-word
 
 zstyle ':completion:*:(rm|kill|diff):*' ignore-line other
 
