@@ -236,3 +236,7 @@ imv() {
         [[ $src != $dst ]] && mkdir -p $dst:h && mv -n $src $dst
     done
 }
+
+# Print logged-in-from ip
+echo -n "You are: "
+who -m
