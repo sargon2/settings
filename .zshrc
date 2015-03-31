@@ -24,7 +24,6 @@ alias scp="~/bin/scp"
 alias gst="git status -u"
 alias gb="git branch -vv"
 alias gba="git branch -vv -a"
-alias dh="dirs -v"
 
 # my common usernames...
 zstyle ':completion:*:(ssh|scp):*' users besen dbesen sargon ${(k)userdirs}
@@ -187,12 +186,6 @@ export LANG="en_US.UTF-8"
 
 # Disable ^s scroll locking
 stty -ixon -ixoff -ixany
-
-# Load the saved Zdirs Stack (http://hints.macworld.com/article.php?story=20050806202859392)
-if [ -f ~/.zdirs -a ${#dirstack} -eq 0 ]; then
-    dirstack=( ${(f)"$(< ~/.zdirs)"} )
-    popd > /dev/null
-fi
 
 # Make ^r work even in the middle of a line
 autoload -Uz narrow-to-region
