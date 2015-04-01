@@ -113,6 +113,9 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" color for line numbers
+highlight LineNr ctermfg=darkgrey
+
 
 au BufRead,BufNewFile *.txt set filetype=text
 
