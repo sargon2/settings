@@ -7,16 +7,16 @@
 
 THIS_CMD=$(basename $0)  # ssh or scp
 
-for ARG in $@
-do
-        if [[ $ARG == *:* ]]; then
-                URI_WITH_COLON=$ARG
-        fi
-done
+if [ "scp" == "$THIS_CMD" ]; then
+        for ARG in $@
+        do
+                if [[ $ARG == *:* ]]; then
+                        URI_WITH_COLON=$ARG
+                fi
+        done
 
-if [ -n "$URI_WITH_COLON" ]; then
         URI=$(echo $URI_WITH_COLON | sed -r s/:[^:]*//g)
-else
+else # ssh
         for ARG in $@
         do
                 if [[ $ARG != -* ]]; then
@@ -28,6 +28,9 @@ fi
 
 if [ -z "$URI" ]; then
         echo "Unable to parse URI."
+        if [ "scp" == "$THIS_CMD" ]; then
+                echo "scp URIs must contain a :"
+        fi
         exit 1
 fi
 
