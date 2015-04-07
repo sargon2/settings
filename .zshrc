@@ -96,7 +96,20 @@ setopt incappendhistory
 setopt autopushd pushdignoredups pushdtohome
 
 bindkey "^R" history-incremental-search-backward
-bindkey "^U" backward-kill-line
+
+function my-backward-kill-line() {
+    # If there is text to the left of the cursor
+    if [ -n "$LBUFFER" ]; then
+        zle backward-kill-line
+    else
+        CUTBUFFER=
+    fi
+    # Always clear the kill ring (talk about a security hole!)
+    killring=
+}
+zle -N my-backward-kill-line
+bindkey "^U" my-backward-kill-line
+
 bindkey "^Y" yank
 bindkey "^?" backward-delete-char # the default is vi-backward-delete-char, which actually fills the ^y buffer
 
