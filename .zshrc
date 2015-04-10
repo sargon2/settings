@@ -42,10 +42,25 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'm:{a-zA-Z}={A-Za-z}' 
 zstyle ':completion:*' original true
 #zstyle :compinstall filename '/home/sargon/.zshrc'
 
-# completion for pip
-if [[ -x $(which pip) ]]; then
-    eval "`pip completion --zsh`"
-fi
+
+# Pip completion should be just this...
+#if [[ -x $(which pip) ]]; then
+#    eval "`pip completion --zsh`"
+#fi
+
+# But, inlining it is 200ms faster.
+# pip zsh completion start
+function _pip_completion {
+    local words cword
+    read -Ac words
+    read -cn cword
+    reply=( $( COMP_WORDS="$words[*]" \
+        COMP_CWORD=$(( cword-1 )) \
+        PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+# pip zsh completion end
+
 
 autoload -Uz compinit
 compinit
