@@ -14,7 +14,7 @@ alias tree="tree -F -C"
 alias ipython="ipython --no-confirm-exit"
 alias ssh="~/bin/ssh"
 alias scp="~/bin/scp"
-alias gst="git status -u"
+alias gst="git status"
 alias gb="git branch -vv"
 alias gba="git branch -vv -a"
 
@@ -22,9 +22,7 @@ alias gba="git branch -vv -a"
 zstyle ':completion:*:(ssh|scp):*' users besen dbesen sargon ${(k)userdirs}
 
 # ssh hostnames...
-local knownhosts
-knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
-zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
+zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
 zstyle ':completion:*' verbose yes
 
