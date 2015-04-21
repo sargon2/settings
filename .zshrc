@@ -250,6 +250,9 @@ imv() {
     done
 }
 
+autoload -U zmv
+alias mmv='noglob zmv -W' # Allows for mmv *.a *.b
+
 # Print logged-in-from ip
 echo -n "You are: "
 who -m
