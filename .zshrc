@@ -78,7 +78,7 @@ prompt walters
 LEFT_COLOR='white'
 RIGHT_COLOR='green'
 if [ -f ~/.zsh-colors ]; then . ~/.zsh-colors; fi
-PS1='%F{$LEFT_COLOR}%n@%m> %f'
+PS1='%F{$LEFT_COLOR}%n@%m%(!.#.>) %f'
 setopt prompt_subst
 RPROMPT='%F{$RIGHT_COLOR}$(git-rprompt)%~%f'
 bindkey '\e[1~' beginning-of-line
