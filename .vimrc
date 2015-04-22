@@ -24,6 +24,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'VOoM'
+Plugin 'elzr/vim-json'
 " Plugin 'klen/python-mode'
 
 " TODO: automatically run vundle on startup? is it fast enough? surely at least BundleClean is...
@@ -35,6 +36,8 @@ if exists('s:setupvundle') && s:setupvundle
     PluginInstall
     quitall
 endif
+
+let g:vim_json_syntax_conceal = 0 " don't conceal quotes in json highlighting
 
 " jedi config
 
