@@ -150,7 +150,7 @@ export TZ='America/Denver'
 
 export PATH=$PATH:~/git-scripts:~/bin
 
-export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
+# export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 
 if [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /lib/terminfo/x/xterm-256color ]; then
         export TERM='xterm-256color'
