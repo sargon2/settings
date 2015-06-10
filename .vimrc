@@ -151,6 +151,9 @@ autocmd BufReadPost *
 " move it to the start of the selection)
 vnoremap y myyg`y
 
+" If you select lines, then paste over them, it shouldn't copy what you replaced.
+vnoremap p "0p
+
 set linebreak
 
 au BufEnter * call MyLastWindow()
