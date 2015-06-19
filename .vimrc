@@ -13,7 +13,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " My plugins
-Plugin 'bartman/git-wip'
+Plugin 'sargon2/git-wip'
 " Syntastic seems to hang when I :w java files
 " Plugin 'scrooloose/syntastic'
 Plugin 'desert256.vim'
