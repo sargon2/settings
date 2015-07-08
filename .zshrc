@@ -91,8 +91,8 @@ case $TERM in (xterm*)
 esac
 bindkey OH beginning-of-line
 bindkey OF end-of-line
-bindkey '[5~' up-line-or-history
-bindkey '[6~' down-line-or-history
+#bindkey '[5~' up-line-or-history
+#bindkey '[6~' down-line-or-history
 bindkey '\e[3~' delete-char
 unsetopt automenu
 unsetopt menucomplete
@@ -110,6 +110,13 @@ unsetopt nomatch
 unsetopt nullglob
 setopt incappendhistory
 setopt autopushd pushdignoredups pushdtohome
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
 bindkey "^R" history-incremental-search-backward
 
@@ -250,6 +257,10 @@ imv() {
         vared dst
         [[ $src != $dst ]] && mkdir -p $dst:h && mv -n $src $dst
     done
+}
+
+function chpwd() {
+    ls
 }
 
 autoload -U zmv
