@@ -262,6 +262,21 @@ function chpwd() {
     ls
 }
 
+function deactivate_or_exit() {
+    if declare -f deactivate > /dev/null
+    then
+        deactivate
+        echo
+        zle reset-prompt
+    else
+        logout
+    fi
+}
+zle -N deactivate_or_exit
+
+setopt IGNORE_EOF
+bindkey '^D' deactivate_or_exit
+
 autoload -U zmv
 alias mmv='noglob zmv -W' # Allows for mmv *.a *.b
 
