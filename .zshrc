@@ -269,7 +269,7 @@ function deactivate_or_exit() {
         echo
         zle reset-prompt
     else
-        logout
+        exit
     fi
 }
 zle -N deactivate_or_exit
