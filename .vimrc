@@ -192,7 +192,8 @@ vnoremap <esc><down> :m'>+<CR>gv
 vnoremap <esc><up> :m-2<CR>gv
 
 "make ctrl-d quit
-nnoremap <c-d> :qa!<CR>
+map <c-d> <ESC>:qa!<CR>
+map! <c-d> <ESC>:qa!<CR>
 
 "make regular expressions more sane
 nnoremap / /\v
