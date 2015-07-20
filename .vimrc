@@ -191,6 +191,9 @@ inoremap <esc><up> <Esc>:m-2<CR>gi
 vnoremap <esc><down> :m'>+<CR>gv
 vnoremap <esc><up> :m-2<CR>gv
 
+"make ctrl-d quit
+nnoremap <c-d> :qa!<CR>
+
 "make regular expressions more sane
 nnoremap / /\v
 " TODO: make this work for :%s/.../.../g -- it doesn't work because timeout is set to zero
