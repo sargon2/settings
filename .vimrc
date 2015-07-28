@@ -194,11 +194,11 @@ vnoremap <esc><up> :m-2<CR>gv
 
 "save undo if we qa!
 function! MyWundoQuit()
-    silent! later 99999
+    let undoseq = undotree().seq_cur
     earlier 1f
     let undof = escape(undofile(expand('%')),'% ')
     exec "wundo " . undof
-    silent! later 99999
+    silent! exec "u " . undoseq
 endfunction
 
 autocmd BufWinLeave * call MyWundoQuit()
