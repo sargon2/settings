@@ -191,7 +191,19 @@ inoremap <esc><up> <Esc>:m-2<CR>gi
 vnoremap <esc><down> :m'>+<CR>gv
 vnoremap <esc><up> :m-2<CR>gv
 
-"make ctrl-d quit
+
+"save undo if we qa!
+function! MyWundoQuit()
+    silent! later 99999
+    earlier 1f
+    let undof = escape(undofile(expand('%')),'% ')
+    exec "wundo " . undof
+endfunction
+
+autocmd BufWinLeave * call MyWundoQuit()
+
+
+"make ctrl-d quit, and save undo
 map <c-d> <ESC>:qa!<CR>
 map! <c-d> <ESC>:qa!<CR>
 
@@ -270,9 +282,9 @@ autocmd FileType text set fillchars=fold:\ "(there's a space after that \)
 autocmd FileType * setlocal formatoptions=tcqnj
 
 " Persistent undo
-" silent !mkdir -p ~/.vim/undodir >/dev/null 2>&1
-" set undodir=~/.vim/undodir
-" set undofile
+silent !mkdir -p ~/.vim/undodir >/dev/null 2>&1
+set undodir=~/.vim/undodir
+set undofile
 
 " allow the cursor off the end of the line to the right
 set virtualedit=all
@@ -283,3 +295,4 @@ let CursorColumnI = 0 "the cursor column position in INSERT
 autocmd InsertEnter * let CursorColumnI = col('.')
 autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+
