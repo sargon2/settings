@@ -198,6 +198,7 @@ function! MyWundoQuit()
     earlier 1f
     let undof = escape(undofile(expand('%')),'% ')
     exec "wundo " . undof
+    silent! later 99999
 endfunction
 
 autocmd BufWinLeave * call MyWundoQuit()
