@@ -195,7 +195,9 @@ vnoremap <esc><up> :m-2<CR>gv
 "save undo if we qa!
 function! MyWundo()
     let undoseq = undotree().seq_cur
-    earlier 1f
+    if &mod
+        earlier 1f
+    endif
     let undof = escape(undofile(expand('%')),'% ')
     exec "wundo " . undof
     silent! exec "u " . undoseq
