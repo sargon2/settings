@@ -288,10 +288,12 @@ autoload -Uz colors
 colors
 handle-interrupt() {
   print -n "$bg_bold[yellow]${(V)KEYS:-^C}$reset_color"
-  zle -I && zle .kill-buffer && zle .send-break
 }
 zle -N handle-interrupt
-TRAPINT() { zle && zle handle-interrupt }
+TRAPINT() {
+    zle && zle handle-interrupt
+    return $(( 128 + $1 )) # Mimic a normal ^C
+}
 
 
 # Print logged-in-from ip
