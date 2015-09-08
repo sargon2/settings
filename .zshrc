@@ -281,6 +281,19 @@ bindkey '^D' deactivate_or_exit
 autoload -U zmv
 alias mmv='noglob zmv -W' # Allows for mmv *.a *.b
 
+bindkey '^[' beep # disable vim mode
+
+# Show ^c
+autoload -Uz colors
+colors
+handle-interrupt() {
+  print -n "$bg_bold[yellow]${(V)KEYS:-^C}$reset_color"
+  zle -I && zle .kill-buffer && zle .send-break
+}
+zle -N handle-interrupt
+TRAPINT() { zle && zle handle-interrupt }
+
+
 # Print logged-in-from ip
 echo -n "You are: "
 who -m
