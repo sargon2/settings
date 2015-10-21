@@ -283,6 +283,8 @@ alias mmv='noglob zmv -W' # Allows for mmv *.a *.b
 
 bindkey '^[' beep # disable vim mode
 
+ZLE_REMOVE_SUFFIX_CHARS=""
+
 # Print logged-in-from ip
 echo -n "You are: "
 who -m
