@@ -283,13 +283,6 @@ alias mmv='noglob zmv -W' # Allows for mmv *.a *.b
 
 bindkey '^[' beep # disable vim mode
 
-# Show ^c
-TRAPINT() {
-    print "^C"
-    return $(( 128 + $1 )) # Mimic a normal ^C
-}
-
-
 # Print logged-in-from ip
 echo -n "You are: "
 who -m
