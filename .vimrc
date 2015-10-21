@@ -218,6 +218,10 @@ cnoremap s/ s/\v
 "make :W save with sudo (kind of, doesn't mark the file as written)
 command W w !sudo tee % > /dev/null
 
+" Input Director sends weird keystrokes if putty has focus when I move machines.
+map <ESC>OP <Nop>
+map! <ESC>OP <Nop>
+
 autocmd VimEnter * Alias q qa
 autocmd VimEnter * Alias wq wqa
 
