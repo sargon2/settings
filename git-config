@@ -19,7 +19,7 @@ git config --global core.logallrefupdates "true"
 git config --global core.editor vim
 git config --global rerere.enabled true
 git config --global merge.conflictstyle diff3
-git config --global alias.really-clean 'clean -X -d -f'
+git config --global alias.really-clean 'clean -X -d -f -f'
 git config --global alias.would-clean 'clean -X -d -n'
 git config --global git-up.fetch.all true
 git config --global git-up.bundler.check true
