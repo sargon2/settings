@@ -1,2 +1,5 @@
 .subversion/auth
 .vim/.netrwhist
+.elinks/cookies
+.elinks/globhist
+.elinks/gotohist
