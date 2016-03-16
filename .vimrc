@@ -183,13 +183,14 @@ nmap <esc>7 :b 7<CR>
 nmap <esc>8 :b 8<CR>
 nmap <esc>9 :b 9<CR>
 
-"make alt+arrow move lines up or down
-nnoremap <esc><down> :m+<CR>
-nnoremap <esc><up> :m-2<CR>
-inoremap <esc><down> <Esc>:m+<CR>gi
-inoremap <esc><up> <Esc>:m-2<CR>gi
-vnoremap <esc><down> :m'>+<CR>gv
-vnoremap <esc><up> :m-2<CR>gv
+" This breaks moving up and down in macros, so I commented it out.
+" "make alt+arrow move lines up or down
+" nnoremap <esc><down> :m+<CR>
+" nnoremap <esc><up> :m-2<CR>
+" inoremap <esc><down> <Esc>:m+<CR>gi
+" inoremap <esc><up> <Esc>:m-2<CR>gi
+" vnoremap <esc><down> :m'>+<CR>gv
+" vnoremap <esc><up> :m-2<CR>gv
 
 
 "save undo if we qa!
@@ -296,10 +297,12 @@ set undofile
 " allow the cursor off the end of the line to the right
 set virtualedit=all
 
+" This breaks something in macros, so I commented it out.
+"
 " Don't move the cursor left one when existing insert mode
 " http://vim.wikia.com/wiki/Prevent_escape_from_moving_the_cursor_one_character_to_the_left
-let CursorColumnI = 0 "the cursor column position in INSERT
-autocmd InsertEnter * let CursorColumnI = col('.')
-autocmd CursorMovedI * let CursorColumnI = col('.')
-autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
-
+" let CursorColumnI = 0 "the cursor column position in INSERT
+" autocmd InsertEnter * let CursorColumnI = col('.')
+" autocmd CursorMovedI * let CursorColumnI = col('.')
+" autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+" 
