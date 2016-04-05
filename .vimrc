@@ -211,6 +211,9 @@ autocmd BufWinLeave * call MyWundo()
 map <c-d> <ESC>:qa!<CR>
 map! <c-d> <ESC>:qa!<CR>
 
+"disable ex-mode
+map Q <Nop>
+
 "make regular expressions more sane
 nnoremap / /\v
 " TODO: make this work for :%s/.../.../g -- it doesn't work because timeout is set to zero
