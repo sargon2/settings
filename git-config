@@ -22,7 +22,7 @@ git config --global merge.conflictstyle diff3
 git config --global alias.really-clean 'clean -X -d -f -f'
 git config --global alias.would-clean 'clean -X -d -n'
 git config --global git-up.fetch.all true
-git config --global git-up.bundler.check true
+git config --global git-up.bundler.check false
 git config --global push.default simple
 git config --global http.sslVerify false
 git config --global status.showuntrackedfiles all
