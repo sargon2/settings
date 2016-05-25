@@ -251,10 +251,6 @@ imv() {
     done
 }
 
-function chpwd() {
-    ls
-}
-
 function deactivate_or_exit() {
     if declare -f deactivate > /dev/null
     then
@@ -281,3 +277,10 @@ ZLE_REMOVE_SUFFIX_CHARS=""
 # Print logged-in-from ip
 echo -n "You are: "
 who -m
+
+# Make cd ls
+ls
+function chpwd() {
+    ls
+}
+
