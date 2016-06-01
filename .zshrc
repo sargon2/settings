@@ -159,11 +159,12 @@ else
 fi
 
 function title() {
-    # escape '%' chars in $1, make nonprintables visible
-    local a=${(V)1//\%/\%\%}
+    # Remove "%' signs from $1 (they mess up normal display sometimes)
+    #local a=${(V)1//\%/\%\%}
+    local a=${(V)1//\%/ }
 
     # Truncate command, and join lines.
-    a=$(print -Pn "%40>...>$a" | tr -d "\n")
+    a=$(print -Pn "%80>...>$a" | tr -d "\n")
 
     case $TERM in
         screen*)
