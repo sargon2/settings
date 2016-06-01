@@ -188,6 +188,15 @@ function preexec() {
     title "$1" "%m:%35<...<%~"
 }
 
+function date() {
+    if [ "$#" -eq 0 ]; then
+        # Override the default date format to my favorite one
+        /bin/date +"%A, %B %-e, %Y %-l:%M:%S %#p"
+    else
+        /bin/date "$@"
+    fi
+}
+
 # Workaround for dbus not properly exiting (prevents logout and kills dropbox otherwise)
 # sometimes 'service messagebus restart' seems to fix it (centos)
 export DBUS_SESSION_BUS_ADDRESS=:0.0
