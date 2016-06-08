@@ -288,9 +288,11 @@ ZLE_REMOVE_SUFFIX_CHARS=""
 echo -n "You are: "
 who -m
 
-# Make cd ls
+# Make cd ls, and make it easier to open multiple terminals in the same folder
 ls
 function chpwd() {
     ls
+    echo "$PWD" > ~/.cwd;
 }
+alias cds='cd "$(cat ~/.cwd)"'
 
