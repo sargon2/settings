@@ -296,3 +296,7 @@ function chpwd() {
 }
 alias cds='cd "$(cat ~/.cwd)"'
 
+# CS machines have shared NFS and I don't want to litter all the machines with dropbox instances.
+if hostname -f | grep cs.colostate.edu >/dev/null; then
+    trap 'dropbox stop' EXIT
+fi
