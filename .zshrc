@@ -202,13 +202,17 @@ function date() {
 export DBUS_SESSION_BUS_ADDRESS=:0.0
 
 # If dropbox is installed, check if it's running, and start it if not
-if [ -e ~/bin/dropbox ]; then
-    if dropbox status 2>&1 | grep -q -i "isn't running"
-    then
-        DISPLAY_SAVE=$DISPLAY
-        unset DISPLAY
-        ~/bin/dropbox start
-        DISPLAY=$DISPLAY_SAVE
+if hostname -f | grep cs.colostate.edu >/dev/null; then
+    trap 'dropbox stop' EXIT
+else # Don't want to auto-start dropbox on cs machines
+    if [ -e ~/bin/dropbox ]; then
+        if dropbox status 2>&1 | grep -q -i "isn't running"
+        then
+            DISPLAY_SAVE=$DISPLAY
+            unset DISPLAY
+            ~/bin/dropbox start
+            DISPLAY=$DISPLAY_SAVE
+        fi
     fi
 fi
 
