@@ -290,7 +290,7 @@ ZLE_REMOVE_SUFFIX_CHARS=""
 
 # Print logged-in-from ip
 echo -n "You are: "
-who -m
+who | grep --color=no `whoami`
 
 # Make cd ls, and make it easier to open multiple terminals in the same folder
 ls
