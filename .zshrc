@@ -143,8 +143,8 @@ zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
 # Turn off menu completion for kill
 zstyle ':completion:*:kill:*:processes' insert-ids single
 
-# Don't vi .class files
-zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.class' '*.pyc' '*.pyo'
+# Don't vi .class files etc
+zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.class' '*.pyc' '*.pyo' '*.o'
 
 export TZ='America/Denver'
 
