@@ -148,7 +148,10 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.class' '*.pyc' '*.pyo'
 
 export TZ='America/Denver'
 
-export PATH=$PATH:~/git-scripts:~/bin
+export PATH=$PATH:~/git-scripts:~/bin:~/bitbucket/random/bin:~/Dropbox/bitbucket/settings/bin
+
+# CS machines anaconda path
+export PATH="/usr/local/anaconda/bin:$PATH"
 
 # export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 
