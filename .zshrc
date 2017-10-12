@@ -12,7 +12,6 @@ alias ll="ls -la"
 alias l="ls"
 alias tree="tree -F -C"
 alias ipython="ipython --no-confirm-exit"
-alias ssh="~/bin/ssh"
 alias scp="~/bin/scp"
 alias gst="git status"
 alias gb="git branch -vv"
@@ -148,7 +147,7 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.class' '*.pyc' '*.pyo'
 
 export TZ='America/Denver'
 
-export PATH=$PATH:~/git-scripts:~/bin:~/bitbucket/random/bin:~/Dropbox/bitbucket/settings/bin
+export PATH=$PATH:~/git-scripts:~/bin:~/bitbucket/random/bin:~/Dropbox/bitbucket/settings/bin:~/.local/bin
 
 # CS machines anaconda path
 export PATH="/usr/local/anaconda/bin:$PATH"
@@ -211,10 +210,7 @@ else # Don't want to auto-start dropbox on cs machines
     if [ -e ~/bin/dropbox ]; then
         if dropbox status 2>&1 | grep -q -i "isn't running"
         then
-            DISPLAY_SAVE=$DISPLAY
-            unset DISPLAY
-            ~/bin/dropbox start
-            DISPLAY=$DISPLAY_SAVE
+            ~/bitbucket/random/bin/start_dropbox
         fi
     fi
 fi
