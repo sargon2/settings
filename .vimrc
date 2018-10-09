@@ -92,6 +92,12 @@ set wildmode=longest,list
 set t_Co=256
 colorscheme desert256
 
+if &term =~ '256color'
+    " Disable Background Color Erase (BCE) so that color schemes
+    " work properly when Vim is used inside tmux and GNU screen.
+    set t_ut=
+endif
+
 
 syntax on
 
@@ -138,6 +144,10 @@ autocmd BufRead,BufNewFile *.mxml set filetype=mxml
 autocmd BufRead,BufNewFile *.ni set filetype=inform7
 autocmd FileType inform7 set wrap
 autocmd FileType inform7 set nu
+
+" LaTeX
+autocmd FileType tex set wrap
+autocmd FileType plaintex set wrap
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
