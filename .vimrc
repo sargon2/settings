@@ -84,6 +84,7 @@ set infercase
 set backspace=indent,eol,start
 set nowrap
 set scrolloff=5
+set nomodeline " there are weird security vulnerabilities with modelines
 
 " Make tab completion for files work like bash (for :e etc)
 set nowildmenu

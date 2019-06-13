@@ -18,6 +18,7 @@ alias gb="git branch -vv"
 alias gba="git branch -vv -a"
 alias gethist="fc -RI"
 alias less="less -R"
+alias cat="cat -v"
 
 # my common usernames...
 zstyle ':completion:*:(ssh|scp):*' users besen dbesen sargon ${(k)userdirs}
