@@ -25,6 +25,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'VOoM'
 Plugin 'elzr/vim-json'
+Plugin 'fatih/vim-go'
 " Plugin 'klen/python-mode'
 
 " TODO: automatically run vundle on startup? is it fast enough? surely at least BundleClean is...
@@ -320,3 +321,5 @@ set virtualedit=all
 " autocmd CursorMovedI * let CursorColumnI = col('.')
 " autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
 " 
+
+let g:go_null_module_warning = 0
