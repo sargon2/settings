@@ -1,8 +1,14 @@
 # vim: expandtab tabstop=4 shiftwidth=4
 
 # Set up dir colors for ls and zsh tab completion
-eval $(dircolors -b)
-alias ls="ls -F --color=auto"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # mac
+    alias ls="ls -G"
+else
+    # These commands don't work on mac.
+    eval $(dircolors -b)
+    alias ls="ls -F --color=auto"
+fi
 alias vi="vim"
 alias grep="grep --color=auto --exclude-dir=*.git"
 alias egrep="egrep --color=auto --exclude-dir=*.git"
