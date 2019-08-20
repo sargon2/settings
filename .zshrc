@@ -144,7 +144,7 @@ zstyle ':completion:*:(rm|kill|diff):*' ignore-line other
 
 LISTMAX=200
 zstyle ':completion:*:kill:*:processes' command "ps x"
-zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
+zstyle ':completion:*:killall:*' command 'ps -e -o comm='
 
 # Turn off menu completion for kill
 zstyle ':completion:*:kill:*:processes' insert-ids single
@@ -154,10 +154,12 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.class' '*.pyc' '*.pyo'
 
 export TZ='America/Denver'
 
-export PATH=$PATH:~/git-scripts:~/bin:~/bitbucket/random/bin:~/Dropbox/bitbucket/settings/bin:~/.local/bin
+export PATH=$PATH:/usr/local/bin:~/git-scripts:~/bin:~/bitbucket/random/bin:~/Dropbox/bitbucket/settings/bin:~/.local/bin:/usr/local/go/bin:~/go/bin
 
 # CS machines anaconda path
 export PATH="/usr/local/anaconda/bin:$PATH"
+
+export GOPATH="$HOME/go"
 
 # export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 

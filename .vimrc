@@ -195,6 +195,17 @@ nmap <esc>7 :b 7<CR>
 nmap <esc>8 :b 8<CR>
 nmap <esc>9 :b 9<CR>
 
+"mac: make opt+# swap buffers
+nmap ¡ :b 1<CR>
+nmap ™ :b 2<CR>
+nmap £ :b 3<CR>
+nmap ¢ :b 4<CR>
+nmap ∞ :b 5<CR>
+nmap § :b 6<CR>
+nmap ¶ :b 7<CR>
+nmap • :b 8<CR>
+nmap ª :b 9<CR>
+
 " This breaks moving up and down in macros, so I commented it out.
 " "make alt+arrow move lines up or down
 " nnoremap <esc><down> :m+<CR>
