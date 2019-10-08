@@ -87,6 +87,8 @@ set nowrap
 set scrolloff=5
 set nomodeline " there are weird security vulnerabilities with modelines
 
+set clipboard=unnamed " on mac, use the system clipboard TODO choose automatically
+
 " Make tab completion for files work like bash (for :e etc)
 set nowildmenu
 set wildmode=longest,list

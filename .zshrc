@@ -9,7 +9,14 @@ else
     eval $(dircolors -b)
     alias ls="ls -F --color=auto"
 fi
-alias vi="vim"
+
+# Mac...
+alias vi="/usr/local/bin/vim"
+alias vim="/usr/local/bin/vim"
+
+# Other... TODO choose automatically
+#alias vi="vim"
+
 alias grep="grep --color=auto --exclude-dir=*.git"
 alias egrep="egrep --color=auto --exclude-dir=*.git"
 alias fgrep="fgrep --color=auto --exclude-dir=*.git"
@@ -18,7 +25,7 @@ alias ll="ls -la"
 alias l="ls"
 alias tree="tree -F -C"
 alias ipython="ipython --no-confirm-exit"
-alias scp="~/bin/scp"
+#alias scp="~/bin/scp"
 alias gst="git status"
 alias gb="git branch -vv"
 alias gba="git branch -vv -a"
