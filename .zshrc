@@ -4,18 +4,14 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # mac
     alias ls="ls -G"
+    alias vi="/usr/local/bin/vim"
+    alias vim="/usr/local/bin/vim"
 else
     # These commands don't work on mac.
     eval $(dircolors -b)
     alias ls="ls -F --color=auto"
+    alias vi="vim"
 fi
-
-# Mac...
-alias vi="/usr/local/bin/vim"
-alias vim="/usr/local/bin/vim"
-
-# Other... TODO choose automatically
-#alias vi="vim"
 
 alias grep="grep --color=auto --exclude-dir=*.git"
 alias egrep="egrep --color=auto --exclude-dir=*.git"
@@ -32,6 +28,7 @@ alias gba="git branch -vv -a"
 alias gethist="fc -RI"
 alias less="less -R"
 alias cat="cat -v"
+alias trim="sed 's/^[ \t]*//;s/[ \t]*$//'"                                                                                     ~/tmp
 
 # my common usernames...
 zstyle ':completion:*:(ssh|scp):*' users besen dbesen sargon ${(k)userdirs}
@@ -92,9 +89,46 @@ prompt walters
 LEFT_COLOR='white'
 RIGHT_COLOR='green'
 if [ -f ~/.zsh-colors ]; then . ~/.zsh-colors; fi
+
+function git_rprompt() {
+    # TODO: git status is too slow in large repos
+    # TODO: show more useful information.  What else?
+    # TODO: more color?
+
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        echo -n "["
+        gst=`git status 2>/dev/null`
+        if git rev-parse --abbrev-ref HEAD >/dev/null 2>&1; then
+            git rev-parse --abbrev-ref HEAD | tr -d '\n'
+        else
+            # New repository with no commits
+            echo -n "HEAD"
+        fi
+        num=`grep ahead <<< "$gst" | grep -o 'by [0-9]\+' | awk '{print $2}'`
+        if [ ! -z "$num" ] && [ "$num" -gt "0" ]; then
+            echo -n "+$num"
+        fi
+        num=`grep behind <<< "$gst" | grep -o 'by [0-9]\+' | awk '{print $2}'`
+        if [ ! -z "$num" ] && [ "$num" -gt "0" ]; then
+            echo -n "-$num"
+        fi
+        a=`grep different <<< "$gst"`
+        rc=$?
+        if [[ $rc == 0 ]] ; then
+            echo -n "?"
+        fi
+        a=`egrep "Changed but not updated|Changes to be committed|Untracked files|Changes not staged for commit" <<< "$gst"`
+        rc=$?
+        if [[ $rc == 0 ]] ; then
+            echo -n "*"
+        fi
+        echo -n "] "
+    fi
+}
+
 PS1='%F{$LEFT_COLOR}%n@%m%(!.#.>) %f'
 setopt prompt_subst
-RPROMPT='%F{$RIGHT_COLOR}$(git-rprompt)%~%f'
+RPROMPT='%F{$RIGHT_COLOR}$(git_rprompt)%~%f'
 bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
 case $TERM in (xterm*)
@@ -198,11 +232,19 @@ function title() {
 
 # precmd is called just before the prompt is printed
 function precmd() {
+    local LASTRET=$?
+    if [ "$LASTRET" != 0 ] && [ "$preexec_called" = 1 ]; then
+        echo -e "\033[1;31mExit code: $LASTRET\033[0m"
+    fi
+
     title "zsh" "%m:%55<...<%~"
+
+    unset preexec_called
 }
 
 # preexec is called just before any command line is executed
 function preexec() {
+    preexec_called=1
     title "$1" "%m:%35<...<%~"
 }
 
