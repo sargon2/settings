@@ -28,7 +28,8 @@ alias gba="git branch -vv -a"
 alias gethist="fc -RI"
 alias less="less -R"
 alias cat="cat -v"
-alias trim="sed 's/^[ \t]*//;s/[ \t]*$//'"                                                                                     ~/tmp
+alias trim="sed 's/^[ \t]*//;s/[ \t]*$//'"
+alias cdh="cd ~/go/src/p-bitbucket.imovetv.com/hydra"
 
 # my common usernames...
 zstyle ':completion:*:(ssh|scp):*' users besen dbesen sargon ${(k)userdirs}
@@ -156,6 +157,13 @@ unsetopt nomatch
 unsetopt nullglob
 setopt incappendhistory
 setopt autopushd pushdignoredups pushdtohome
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "[A" up-line-or-beginning-search
+bindkey "[B" down-line-or-beginning-search
 
 bindkey "^R" history-incremental-search-backward
 
