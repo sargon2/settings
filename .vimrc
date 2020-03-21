@@ -132,6 +132,9 @@ highlight LineNr ctermfg=darkgrey
 
 au BufRead,BufNewFile *.txt set filetype=text
 
+" YAIFA breaks on go.
+autocmd BufRead,BufNewFile *.go let yaifa_disabled=1
+
 " disable annoying auto-wrap for text files
 autocmd FileType text setlocal textwidth=0
 
