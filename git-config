@@ -27,3 +27,4 @@ git config --global http.sslVerify false
 git config --global status.showuntrackedfiles all
 git config --global alias.up 'pull --rebase --autostash'
 git config --global pretty.oneline-s "%C(yellow)%h%Creset %<(20,trunc)%an %C(blue)%cs%Creset %s"
+git config --global alias.branch-owners "for-each-ref refs/remotes/ --format='%(refname) %09 %(authorname) %09 %(committerdate)'"
