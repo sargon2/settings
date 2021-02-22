@@ -369,3 +369,8 @@ alias cds='cd "$(cat ~/.cwd)"'
 if hostname -f | grep cs.colostate.edu >/dev/null; then
     trap 'dropbox stop' EXIT
 fi
+
+function take() {
+    mkdir -p -- "$1"
+    cd -- "$1"
+}
