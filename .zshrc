@@ -1,19 +1,25 @@
 # vim: expandtab tabstop=4 shiftwidth=4
 
-# Set up dir colors for ls and zsh tab completion
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # mac
     alias ls="ls -G"
     alias vi="/usr/local/bin/vim"
     alias vim="/usr/local/bin/vim"
+    export EDITOR="/usr/local/bin/vim"
+    export VISUAL=$EDITOR
+    alias start=open
+    alias grep="/usr/local/bin/ggrep --color=auto --exclude-dir=*.git"
 else
     # These commands don't work on mac.
+    # Set up dir colors for ls and zsh tab completion
     eval $(dircolors -b)
     alias ls="ls -F --color=auto"
     alias vi="vim"
+    export EDITOR=vim
+    export VISUAL=$EDITOR
+    alias grep="grep --color=auto --exclude-dir=*.git"
 fi
 
-alias grep="grep --color=auto --exclude-dir=*.git"
 alias egrep="egrep --color=auto --exclude-dir=*.git"
 alias fgrep="fgrep --color=auto --exclude-dir=*.git"
 alias pcregrep="pcregrep --color --exclude-dir=.git"
@@ -30,6 +36,17 @@ alias less="less -R"
 alias cat="cat -v"
 alias trim="sed 's/^[ \t]*//;s/[ \t]*$//'"
 alias cdh="cd ~/go/src/p-bitbucket.imovetv.com/hydra"
+alias cdp="cd ~/go/src/p-bitbucket.imovetv.com"
+alias cdv="cd ~/go/src/p-bitbucket.imovetv.com/cms/local-dev-setup/Ubuntu16.04"
+hash -d p=~/go/src/p-bitbucket.imovetv.com
+hash -d h=~/go/src/p-bitbucket.imovetv.com/hydra
+
+# Mac ssh is broken over the vpn, so brew install openssh
+# alias ssh="/usr/local/bin/ssh"
+# alias scp="/usr/local/bin/scp"
+# export GIT_SSH_COMMAND=/usr/local/bin/ssh
+
+# alias git="/usr/local/bin/git"
 
 # my common usernames...
 zstyle ':completion:*:(ssh|scp):*' users besen dbesen sargon ${(k)userdirs}
@@ -162,8 +179,6 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey "[A" up-line-or-beginning-search
-bindkey "[B" down-line-or-beginning-search
 
 bindkey "^R" history-incremental-search-backward
 
@@ -204,6 +219,9 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.class' '*.pyc' '*.pyo'
 export TZ='America/Denver'
 
 export PATH=$PATH:/usr/local/bin:~/git-scripts:~/bin:~/bitbucket/random/bin:~/Dropbox/bitbucket/settings/bin:~/.local/bin:/usr/local/go/bin:~/go/bin
+
+# Ryan's tools
+export PATH=$PATH:~/git/snippets
 
 # CS machines anaconda path
 export PATH="/usr/local/anaconda/bin:$PATH"
@@ -374,3 +392,26 @@ function take() {
     mkdir -p -- "$1"
     cd -- "$1"
 }
+
+# for 'kubectl config use-context prod-ae2'
+KUBECONFIG=""
+for file in $(ls "$HOME/.kube/config.d"); do
+        KUBECONFIG="$HOME/.kube/config.d/$file:$KUBECONFIG";
+done;
+export KUBECONFIG
+
+# Kubernetes completion. Lazy load since it takes 5s
+# It doesn't load when you 'kubectl <tab>', only when you run kubectl.
+function kubectl() {
+    if ! type __start_kubectl >/dev/null 2>&1; then
+        source <(command kubectl completion zsh)
+    fi
+
+    command kubectl "$@"
+}
+
+export NVM_DIR="$HOME/.nvm"
+# Commented out since it takes ~2 seconds
+alias nvm='echo Comment out this alias and uncomment those slow lines in .zshrc to load nvm'
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completio
