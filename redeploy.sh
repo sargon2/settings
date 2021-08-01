@@ -9,7 +9,7 @@
 cd
 mkdir bitbucket
 cd bitbucket
-git clone git@bitbucket.org:dbesen/settings.git
+git clone https://dbesen@bitbucket.org/dbesen/settings.git
 cd settings
 
 mkdir ~/bin
@@ -19,3 +19,6 @@ mkdir ~/.ssh
 ln -s .ssh/* ~/.ssh
 
 ln -s .* ~
+
+sudo yum update
+sudo yum install -y zsh
