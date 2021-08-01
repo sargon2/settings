@@ -24,7 +24,9 @@ ln -sf bitbucket/settings/.ssh/* .ssh/
 ln -sf bitbucket/settings/.!(git) .
 
 sudo yum update
-sudo yum install -y zsh
+sudo yum install -y zsh util-linux-user
+
+sudo chsh -s $(which zsh) $(whoami)
 
 ./bitbucket/settings/git-config
 
