@@ -10,15 +10,16 @@ cd
 mkdir bitbucket
 cd bitbucket
 git clone https://dbesen@bitbucket.org/dbesen/settings.git
-cd settings
 
-mkdir ~/bin
-ln -s bin/* ~/bin
+cd
+
+mkdir bin
+ln -sf bitbucket/settings/bin/* bin/
 
 mkdir ~/.ssh
-ln -s .ssh/* ~/.ssh
+ln -sf bitbucket/settings/.ssh/* .ssh/
 
-ln -s .* ~
+ln -sf bitbucket/settings/.* .
 
 sudo yum update
 sudo yum install -y zsh
