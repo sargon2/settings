@@ -25,3 +25,7 @@ ln -sf bitbucket/settings/.!(git) .
 
 sudo yum update
 sudo yum install -y zsh
+
+./bitbucket/settings/git-config
+
+vim '+exit' # install vim plugins
