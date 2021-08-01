@@ -6,6 +6,8 @@
 # TODO test if we're running locally or remotely?
 # git remote get-url origin | grep settings
 
+shopt -s extglob
+
 cd
 mkdir bitbucket
 cd bitbucket
@@ -19,7 +21,7 @@ ln -sf bitbucket/settings/bin/* bin/
 mkdir ~/.ssh
 ln -sf bitbucket/settings/.ssh/* .ssh/
 
-ln -sf bitbucket/settings/.* .
+ln -sf bitbucket/settings/.!(git) .
 
 sudo yum update
 sudo yum install -y zsh
