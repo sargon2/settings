@@ -393,23 +393,6 @@ function take() {
     cd -- "$1"
 }
 
-# for 'kubectl config use-context prod-ae2'
-KUBECONFIG=""
-for file in $(ls "$HOME/.kube/config.d"); do
-        KUBECONFIG="$HOME/.kube/config.d/$file:$KUBECONFIG";
-done;
-export KUBECONFIG
-
-# Kubernetes completion. Lazy load since it takes 5s
-# It doesn't load when you 'kubectl <tab>', only when you run kubectl.
-function kubectl() {
-    if ! type __start_kubectl >/dev/null 2>&1; then
-        source <(command kubectl completion zsh)
-    fi
-
-    command kubectl "$@"
-}
-
 export NVM_DIR="$HOME/.nvm"
 # Commented out since it takes ~2 seconds
 alias nvm='echo Comment out this alias and uncomment those slow lines in .zshrc to load nvm'
