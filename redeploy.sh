@@ -16,10 +16,14 @@ git clone https://dbesen@bitbucket.org/dbesen/settings.git
 cd
 
 mkdir bin
-ln -sf bitbucket/settings/bin/* bin/
+pushd bin
+ln -sf ../bitbucket/settings/bin/* .
+popd
 
 mkdir ~/.ssh
-ln -sf bitbucket/settings/.ssh/* .ssh/
+pushd .ssh
+ln -sf ../bitbucket/settings/.ssh/* .
+popd
 
 ln -sf bitbucket/settings/.!(git) .
 
@@ -31,3 +35,5 @@ sudo chsh -s $(which zsh) $(whoami)
 ./bitbucket/settings/git-config
 
 vim '+exit' # install vim plugins
+
+ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -q -N ''
