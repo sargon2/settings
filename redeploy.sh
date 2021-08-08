@@ -37,3 +37,7 @@ sudo chsh -s $(which zsh) $(whoami)
 vim '+exit' # install vim plugins
 
 ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -q -N ''
+
+pushd ~/bitbucket/settings
+git remote set-url origin ssh://git@bitbucket.org/dbesen/settings.git
+popd
