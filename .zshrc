@@ -158,6 +158,7 @@ bindkey OF end-of-line
 bindkey '[5~' up-line-or-history
 bindkey '[6~' down-line-or-history
 bindkey '\e[3~' delete-char
+bindkey '^I' expand-or-complete
 unsetopt automenu
 unsetopt menucomplete
 setopt listpacked
