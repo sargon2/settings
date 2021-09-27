@@ -228,7 +228,7 @@ function! MyWundo()
         earlier 1f
     endif
     let undof = escape(undofile(expand('%')),'% ')
-    exec "wundo " . undof
+    silent! exec "wundo " . undof
     silent! exec "u " . undoseq
 endfunction
 
