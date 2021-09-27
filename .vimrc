@@ -79,7 +79,7 @@ set hlsearch
 set nobackup
 set noswapfile
 set showcmd
-set timeoutlen=0
+set timeoutlen=1 " If I set this to zero, vim starts with 1c typed in WSL2.
 set ignorecase
 set infercase
 set backspace=indent,eol,start
