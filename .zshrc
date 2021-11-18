@@ -89,7 +89,8 @@ function _pip_completion {
 compctl -K _pip_completion pip
 # pip zsh completion end
 
-
+autoload bashcompinit
+bashcompinit
 autoload -Uz compinit
 compinit
 
@@ -146,6 +147,7 @@ function git_rprompt() {
 
 PS1='%F{$LEFT_COLOR}%n@%m%(!.#.>) %f'
 setopt prompt_subst
+setopt PROMPT_SP # Show output when there's no newline
 RPROMPT='%F{$RIGHT_COLOR}$(git_rprompt)%~%f'
 bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
@@ -158,7 +160,6 @@ bindkey OF end-of-line
 bindkey '[5~' up-line-or-history
 bindkey '[6~' down-line-or-history
 bindkey '\e[3~' delete-char
-bindkey '^I' expand-or-complete
 unsetopt automenu
 unsetopt menucomplete
 setopt listpacked
@@ -226,6 +227,9 @@ export PATH=$PATH:~/git/snippets
 
 # CS machines anaconda path
 export PATH="/usr/local/anaconda/bin:$PATH"
+
+# Brazil
+export PATH=$PATH:~/.toolbox/bin/
 
 export GOPATH="$HOME/go"
 
@@ -399,3 +403,10 @@ export NVM_DIR="$HOME/.nvm"
 alias nvm='echo Comment out this alias and uncomment those slow lines in .zshrc to load nvm'
 # [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 # [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completio
+
+alias bb=brazil-build
+
+complete -C '/usr/local/bin/aws_completer' aws
+eval "$(isengardcli shell-autocomplete)"
+
+export PYTHONPATH=/Users

@@ -79,7 +79,7 @@ set hlsearch
 set nobackup
 set noswapfile
 set showcmd
-set timeoutlen=1 " If I set this to zero, vim starts with 1c typed in WSL2.
+set timeoutlen=0
 set ignorecase
 set infercase
 set backspace=indent,eol,start
@@ -228,7 +228,7 @@ function! MyWundo()
         earlier 1f
     endif
     let undof = escape(undofile(expand('%')),'% ')
-    silent! exec "wundo " . undof
+    exec "wundo " . undof
     silent! exec "u " . undoseq
 endfunction
 
