@@ -407,6 +407,8 @@ alias nvm='echo Comment out this alias and uncomment those slow lines in .zshrc 
 alias bb=brazil-build
 
 complete -C '/usr/local/bin/aws_completer' aws
-eval "$(isengardcli shell-autocomplete)"
+if which isengardcli &>/dev/null; then
+    eval "$(isengardcli shell-autocomplete)"
+fi
 
 export PYTHONPATH=/Users
