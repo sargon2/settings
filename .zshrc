@@ -35,11 +35,6 @@ alias gethist="fc -RI"
 alias less="less -R"
 alias cat="cat -v"
 alias trim="sed 's/^[ \t]*//;s/[ \t]*$//'"
-alias cdh="cd ~/go/src/p-bitbucket.imovetv.com/hydra"
-alias cdp="cd ~/go/src/p-bitbucket.imovetv.com"
-alias cdv="cd ~/go/src/p-bitbucket.imovetv.com/cms/local-dev-setup/Ubuntu16.04"
-hash -d p=~/go/src/p-bitbucket.imovetv.com
-hash -d h=~/go/src/p-bitbucket.imovetv.com/hydra
 
 # Mac ssh is broken over the vpn, so brew install openssh
 # alias ssh="/usr/local/bin/ssh"
@@ -377,8 +372,8 @@ bindkey '^[' beep # disable vim mode
 ZLE_REMOVE_SUFFIX_CHARS=""
 
 # Print logged-in-from ip
-echo -n "You are: "
-who | grep --color=no `whoami`
+# echo -n "You are: "
+# who | grep --color=no `whoami`
 
 # Make cd ls, and make it easier to open multiple terminals in the same folder
 ls
