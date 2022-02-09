@@ -393,6 +393,14 @@ function take() {
     cd -- "$1"
 }
 
+function nowrap () {
+    tput rmam;
+    while read -r data; do
+        printf "%s\n" "$data"
+    done
+    tput smam;
+}
+
 export NVM_DIR="$HOME/.nvm"
 # Commented out since it takes ~2 seconds
 alias nvm='echo Comment out this alias and uncomment those slow lines in .zshrc to load nvm'
