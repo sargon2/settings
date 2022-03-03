@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 # Run with:
 # wget -O- https://bitbucket.org/dbesen/settings/raw/master/redeploy.sh | bash
@@ -34,10 +34,11 @@ sudo chsh -s $(which zsh) $(whoami)
 
 ./bitbucket/settings/git-config
 
-vim '+exit' # install vim plugins
-
 ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -q -N ''
 
 pushd ~/bitbucket/settings
 git remote set-url origin ssh://git@bitbucket.org/dbesen/settings.git
 popd
+
+vim '+exit' # install vim plugins
+
