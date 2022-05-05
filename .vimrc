@@ -221,20 +221,6 @@ nmap ª :b 9<CR>
 " vnoremap <esc><up> :m-2<CR>gv
 
 
-"save undo if we qa!
-function! MyWundo()
-    let undoseq = undotree().seq_cur
-    if &mod
-        earlier 1f
-    endif
-    let undof = escape(undofile(expand('%')),'% ')
-    exec "wundo " . undof
-    silent! exec "u " . undoseq
-endfunction
-
-autocmd BufWinLeave * call MyWundo()
-
-
 "make ctrl-d quit, and save undo
 map <c-d> <ESC>:qa!<CR>
 map! <c-d> <ESC>:qa!<CR>
