@@ -79,7 +79,7 @@ set hlsearch
 set nobackup
 set noswapfile
 set showcmd
-set timeoutlen=0
+set timeoutlen=1 " For some reason, if this is 0, I get strange characters on startup in WSL
 set ignorecase
 set infercase
 set backspace=indent,eol,start
