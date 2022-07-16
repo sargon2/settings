@@ -1,0 +1,42 @@
+[user]
+	email = dbesen@gmail.com
+	name = David Besen
+[color]
+	ui = true
+[difftool "sdiff"]
+	cmd = "sdiff -l -d  "
+[difftool]
+	prompt = false
+[alias]
+	vimdiff = difftool -t vimdiff
+	sdiff = difftool -t sdiff
+	really-clean = clean -X -d -f -f
+	would-clean = clean -X -d -n
+	up = pull --rebase --autostash
+	branch-owners = "!f() { git for-each-ref refs/remotes/ --format='%(refname) %09 %(authorname) %09 %(committerdate)'; }; f | column -t -s'\t'"
+[branch]
+	autosetuprebase = always
+[log]
+	date = local
+[core]
+	sparsecheckout = true
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[rerere]
+	enabled = true
+[merge]
+	conflictstyle = diff3
+[git-up "fetch"]
+	all = true
+[git-up "bundler"]
+	check = false
+[push]
+	default = simple
+[http]
+	sslVerify = false
+[status]
+	showuntrackedfiles = all
+[pretty]
+	oneline-s = %C(yellow)%h%Creset %<(20,trunc)%an %C(blue)%cs%Creset %s
