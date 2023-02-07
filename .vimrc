@@ -86,6 +86,7 @@ set backspace=indent,eol,start
 set nowrap
 set scrolloff=5
 set nomodeline " there are weird security vulnerabilities with modelines
+set cm=blowfish2
 
 set clipboard=unnamed " on mac, use the system clipboard TODO choose automatically
 
