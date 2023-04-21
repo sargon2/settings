@@ -381,7 +381,23 @@ function chpwd() {
     ls
     echo "$PWD" > ~/.cwd;
 }
-alias cds='cd "$(cat ~/.cwd)"'
+
+# Also folder bookmarks
+function addbookmark() {
+    if [ -z "$2" ]; then
+        echo "Usage: $0 <bookmark location> <bookmark name>"
+        return 1
+    fi
+    ln -s "$1" "$HOME/.bookmarks/$2"
+}
+
+function cds() {
+    if [ -z "$1" ]; then
+        cd `cat ~/.cwd`
+    else
+        cd -P "$HOME/.bookmarks/$1" # TODO tab completion for this
+    fi
+}
 
 # CS machines have shared NFS and I don't want to litter all the machines with dropbox instances.
 if hostname -f | grep cs.colostate.edu >/dev/null; then
