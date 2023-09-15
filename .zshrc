@@ -5,8 +5,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias ls="ls -G"
     alias vi="/usr/local/bin/vim"
     alias vim="/usr/local/bin/vim"
-    export EDITOR="/usr/local/bin/vim"
-    export VISUAL=$EDITOR
     alias start=open
     alias grep="/usr/local/bin/ggrep --color=auto --exclude-dir=*.git"
 else
@@ -15,10 +13,9 @@ else
     eval $(dircolors -b)
     alias ls="ls -F --color=auto"
     alias vi="vim"
-    export EDITOR=vim
-    export VISUAL=$EDITOR
     alias grep="grep --color=auto --exclude-dir=*.git"
 fi
+
 
 alias egrep="egrep --color=auto --exclude-dir=*.git"
 alias fgrep="fgrep --color=auto --exclude-dir=*.git"
@@ -64,7 +61,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'l:|=* r:|=*'
 zstyle ':completion:*' original true
 #zstyle :compinstall filename '/home/sargon/.zshrc'
-
 
 # Pip completion should be just this...
 #if [[ -x $(which pip) ]]; then
@@ -431,4 +427,15 @@ if which isengardcli &>/dev/null; then
     eval "$(isengardcli shell-autocomplete)"
 fi
 
-export PYTHONPATH=/Users
+# For some crazy reason if I put this at the top of this file, it breaks tab completion.  But down here it works.
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # mac
+    export EDITOR="/usr/local/bin/vim"
+    export VISUAL=$EDITOR
+else
+    # These commands don't work on mac.
+    # Set up dir colors for ls and zsh tab completion
+    export EDITOR=vim # WTF? This is somehow breaking tab completion.
+    export VISUAL=$EDITOR
+fi
+
