@@ -72,6 +72,11 @@ so ~/.vim/bundle/git-wip/vim/plugin/git-wip.vim
 
 
 set mouse=a
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
 set hidden
 set ruler
 set incsearch
