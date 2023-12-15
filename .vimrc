@@ -155,6 +155,7 @@ autocmd BufRead,BufNewFile *.mxml set filetype=mxml
 
 " inform 7
 autocmd BufRead,BufNewFile *.ni set filetype=inform7
+autocmd BufRead,BufNewFile *.i7x set filetype=inform7
 autocmd FileType inform7 set wrap
 autocmd FileType inform7 set nu
 
@@ -317,7 +318,8 @@ silent !mkdir -p ~/.vim/undodir >/dev/null 2>&1
 set undodir=~/.vim/undodir
 set undofile
 
-" allow the cursor off the end of the line to the right
+" Allow the cursor off the end of the line to the right.
+" Also allows it 'inside' tab characters
 set virtualedit=all
 
 " This breaks something in macros, so I commented it out.
