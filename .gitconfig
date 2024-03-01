@@ -40,3 +40,5 @@
 	showuntrackedfiles = all
 [pretty]
 	oneline-s = %C(yellow)%h%Creset %<(20,trunc)%an %C(blue)%cs%Creset %s
+[init]
+	defaultBranch = main
