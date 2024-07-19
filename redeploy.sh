@@ -27,8 +27,8 @@ popd
 
 ln -sf bitbucket/settings/.!(git) .
 
-sudo yum update
-sudo yum install -y zsh util-linux-user
+sudo apt-get update
+sudo apt-get install -y zsh util-linux-user
 
 sudo chsh -s $(which zsh) $(whoami)
 
