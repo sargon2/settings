@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 THIS="$(basename "$0")"
 
 # Define the files to skip
-SKIP_FILES=("." ".." ".git" ".gitignore" "bin" "$THIS")
+SKIP_FILES=("." ".." ".git" ".gitignore" "bin" ".ssh" "$THIS")
 
 # Iterate over files in the directory, including dotfiles
 shopt -s dotglob nullglob
