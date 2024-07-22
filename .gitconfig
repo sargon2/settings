@@ -19,7 +19,7 @@
 [log]
 	date = local
 [core]
-	sparsecheckout = true
+	sparsecheckout = false
 	repositoryformatversion = 0
 	filemode = true
 	bare = false
