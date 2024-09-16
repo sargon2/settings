@@ -213,6 +213,9 @@ export TZ='America/Denver'
 
 export PATH=$PATH:/usr/local/bin:~/git-scripts:~/bin:~/bitbucket/random/bin:~/Dropbox/bitbucket/settings/bin:~/.local/bin:/usr/local/go/bin:~/go/bin
 
+# snap binaries
+export PATH=$PATH:/snap/bin
+
 # Ryan's tools
 export PATH=$PATH:~/git/snippets
 
