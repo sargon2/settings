@@ -32,6 +32,7 @@ alias gethist="fc -RI"
 alias less="less -R"
 alias cat="cat -v"
 alias trim="sed 's/^[ \t]*//;s/[ \t]*$//'"
+alias cls="clear"
 
 # Mac ssh is broken over the vpn, so brew install openssh
 # alias ssh="/usr/local/bin/ssh"
