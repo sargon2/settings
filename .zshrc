@@ -443,3 +443,6 @@ else
     export VISUAL=$EDITOR
 fi
 
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/github/zsh-autosuggestions/zsh-autosuggestions.zsh
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
