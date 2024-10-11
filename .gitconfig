@@ -42,3 +42,8 @@
 	oneline-s = %C(yellow)%h%Creset %<(20,trunc)%an %C(blue)%cs%Creset %s
 [init]
 	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
