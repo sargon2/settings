@@ -287,17 +287,18 @@ function date() {
 # sometimes 'service messagebus restart' seems to fix it (centos)
 export DBUS_SESSION_BUS_ADDRESS=:0.0
 
-# If dropbox is installed, check if it's running, and start it if not
-if hostname -f | grep cs.colostate.edu >/dev/null; then
-    trap 'dropbox stop' EXIT
-else # Don't want to auto-start dropbox on cs machines
-    if [ -e ~/bin/dropbox ]; then
-        if dropbox status 2>&1 | grep -q -i "isn't running"
-        then
-            ~/bitbucket/random/bin/start_dropbox
-        fi
-    fi
-fi
+# Replaced with https://bitbucket.org/dbesen/random/src/master/dropbox_systemd/
+# # If dropbox is installed, check if it's running, and start it if not
+# if hostname -f | grep cs.colostate.edu >/dev/null; then
+#     trap 'dropbox stop' EXIT
+# else # Don't want to auto-start dropbox on cs machines
+#     if [ -e ~/bin/dropbox ]; then
+#         if dropbox status 2>&1 | grep -q -i "isn't running"
+#         then
+#             ~/bitbucket/random/bin/start_dropbox
+#         fi
+#     fi
+# fi
 
 # Turn on unicode support
 export LANG="en_US.UTF-8"
