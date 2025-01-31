@@ -212,7 +212,7 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.class' '*.pyc' '*.pyo'
 
 export TZ='America/Denver'
 
-export PATH=$PATH:/usr/local/bin:~/git-scripts:~/bin:~/bitbucket/random/bin:~/Dropbox/bitbucket/settings/bin:~/.local/bin:/usr/local/go/bin:~/go/bin
+export PATH=$PATH:/usr/local/bin:~/git-scripts:~/bin:~/github/sargon2/random/bin:~/.local/bin:/usr/local/go/bin:~/go/bin
 
 # snap binaries
 export PATH=$PATH:/snap/bin
@@ -287,7 +287,7 @@ function date() {
 # sometimes 'service messagebus restart' seems to fix it (centos)
 export DBUS_SESSION_BUS_ADDRESS=:0.0
 
-# Replaced with https://bitbucket.org/dbesen/random/src/master/dropbox_systemd/
+# Replaced with https://github.org/sargon2/random/src/master/dropbox_systemd/
 # # If dropbox is installed, check if it's running, and start it if not
 # if hostname -f | grep cs.colostate.edu >/dev/null; then
 #     trap 'dropbox stop' EXIT
@@ -295,7 +295,7 @@ export DBUS_SESSION_BUS_ADDRESS=:0.0
 #     if [ -e ~/bin/dropbox ]; then
 #         if dropbox status 2>&1 | grep -q -i "isn't running"
 #         then
-#             ~/bitbucket/random/bin/start_dropbox
+#             ~/github/sargon2/random/bin/start_dropbox
 #         fi
 #     fi
 # fi
