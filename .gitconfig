@@ -27,7 +27,7 @@
 [rerere]
 	enabled = true
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 [git-up "fetch"]
 	all = true
 [git-up "bundler"]
