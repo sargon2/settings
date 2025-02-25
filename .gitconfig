@@ -16,7 +16,7 @@
 	branch-owners = "!f() { git for-each-ref refs/remotes/ --format='%(refname) %09 %(authorname) %09 %(committerdate)'; }; f | column -t -s'\t'"
 [branch]
 	autosetuprebase = always
-	sort = committerdate
+	sort = -committerdate
 [log]
 	date = local
 [core]
@@ -35,6 +35,8 @@
 	check = false
 [push]
 	default = simple
+	autoSetupRemote = true
+	followTags = true
 [http]
 	sslVerify = false
 [status]
@@ -60,3 +62,9 @@
 [rebase]
 	autosquash = true
 	autostash = true
+[column]
+	ui = auto
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
