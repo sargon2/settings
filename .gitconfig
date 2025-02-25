@@ -16,6 +16,7 @@
 	branch-owners = "!f() { git for-each-ref refs/remotes/ --format='%(refname) %09 %(authorname) %09 %(committerdate)'; }; f | column -t -s'\t'"
 [branch]
 	autosetuprebase = always
+	sort = committerdate
 [log]
 	date = local
 [core]
@@ -54,3 +55,8 @@
 	colorMoved = plain
 	mnemonicPrefix = true
 	renames = true
+[grep]
+	patternType = perl
+[rebase]
+	autosquash = true
+	autostash = true
