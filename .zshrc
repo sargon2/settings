@@ -394,7 +394,7 @@ function addbookmark() {
 
 function cds() {
     if [ -z "$1" ]; then
-        cd `cat ~/.cwd`
+        cd "$(cat ~/.cwd)"
     else
         cd -P "$HOME/.bookmarks/$1" # TODO tab completion for this
     fi
